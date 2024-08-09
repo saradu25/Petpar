@@ -1,31 +1,35 @@
 package br.edu.ifsp.arq.ads.ifitness.servlets.helpers;
 
-import java.util.Optional;
-
+import br.edu.ifsp.arq.ads.ifitness.model.daos.InstitutionDao;
 import br.edu.ifsp.arq.ads.ifitness.model.daos.UserDao;
+import br.edu.ifsp.arq.ads.ifitness.model.entities.Institution;
 import br.edu.ifsp.arq.ads.ifitness.model.entities.User;
 import br.edu.ifsp.arq.ads.ifitness.utils.SearcherDataSource;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
-public class LoginHelper implements Helper {
+public class InstitutionLoginHelper implements Helper {
 
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
-		UserDao userDao = new UserDao(SearcherDataSource.getInstance().getDataSource());
-		Optional<User> optional = userDao.getUserByEmailAndPassword(email, password);
+		InstitutionDao userDao = new InstitutionDao(SearcherDataSource.getInstance().getDataSource());
+		Optional<Institution> optional = userDao.getUserByEmailAndPassword(email, password);
 		if(optional.isPresent()) {
-			User user = optional.get();
+			Institution institution = optional.get();
 			HttpSession session = req.getSession();
 			session.setMaxInactiveInterval(600);
-			session.setAttribute("user", user);
-			return "/ControllerServlet?action=listActivities";
+			session.setAttribute("institution", institution);
+			//TODO
+			// ir pra tela de listar animais em adoção da instituição
+			return "/ControllerServlet?action=institutionSearchAnimals";
 		}else {
 			req.setAttribute("result", "loginError");
-			return "/login.jsp";
+			return "/institutionLogin.jsp";
 		}
 	}
 

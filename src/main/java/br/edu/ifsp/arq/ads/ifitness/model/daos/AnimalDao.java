@@ -141,9 +141,14 @@ public class AnimalDao {
 
 	public List<Animal> getAnimalsByFilter(AnimalFilter filter) throws SQLException {
 		StringBuilder sql = 
-				new StringBuilder("select * from animal where institution_id=?");
+				new StringBuilder("select * from animal where 1=1");
 		List<Object> params = new ArrayList<>();
-		params.add(filter.getInstitution().getId());
+
+
+		if (filter.getType() != null) {
+			sql.append(" and institution_id=?");
+			params.add(filter.getInstitution().getId());
+		}
 
 		if (filter.getType() != null) {
 			sql.append(" and type=?");
@@ -165,12 +170,11 @@ public class AnimalDao {
 			params.add(filter.getFinalDate());
 		}
 
-		return getAnimalList(sql.toString(), params, filter.getInstitution());
+		return getAnimalList(sql.toString(), params);
 	}
 
-	private List<Animal> getAnimalList(String sql, List<Object> params,
-									   Institution institution) throws SQLException {
-		List<Animal> activities = new ArrayList<>();
+	private List<Animal> getAnimalList(String sql, List<Object> params) throws SQLException {
+		List<Animal> animals = new ArrayList<>();
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			for (int i = 0; i < params.size(); i++) {
 				ps.setObject(i + 1, params.get(i));
@@ -189,11 +193,14 @@ public class AnimalDao {
 					User user = new User();
 					user.setId(rs.getLong(9));
 					animal.setUser(user);
+					Institution institution = new Institution();
+					institution.setId(rs.getLong(10));
 					animal.setInstitution(institution);
-					activities.add(animal);
+
+					animals.add(animal);
 				}
 			}
 		}
-		return activities;
+		return animals;
 	}
 }

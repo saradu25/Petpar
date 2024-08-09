@@ -1,20 +1,20 @@
 package br.edu.ifsp.arq.ads.ifitness.servlets.helpers;
 
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.List;
-
 import br.edu.ifsp.arq.ads.ifitness.model.daos.AnimalDao;
 import br.edu.ifsp.arq.ads.ifitness.model.daos.filters.AnimalFilter;
 import br.edu.ifsp.arq.ads.ifitness.model.entities.Animal;
 import br.edu.ifsp.arq.ads.ifitness.model.entities.Institution;
 import br.edu.ifsp.arq.ads.ifitness.model.entities.SpecieType;
 import br.edu.ifsp.arq.ads.ifitness.utils.SearcherDataSource;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.List;
 
-public class SearchActivitiesHelper implements Helper {
+public class InstitutionSearchAnimalsHelper implements Helper {
 
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -43,13 +43,15 @@ public class SearchActivitiesHelper implements Helper {
 		filter.setInitialDate(initialDate);
 		filter.setFinalDate(finalDate);
 		AnimalDao animalDao = new AnimalDao(SearcherDataSource.getInstance().getDataSource());
-		List<Animal> userActivities = null;
+		List<Animal> animals = null;
 		try {
-			userActivities = animalDao.getAnimalsByFilter(filter);
+			animals = animalDao.getAnimalsByFilter(filter);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		req.setAttribute("userActivities", userActivities);
+		req.setAttribute("institutionFilteredAnimals", animals);
+		//TODO
+		// qual seria a Home?
 		return "/home.jsp";
 	}
 
