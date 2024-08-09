@@ -17,7 +17,7 @@ public class ListActivitiesHelper implements Helper {
 		HttpSession session = req.getSession(false);
 		User user = (User)session.getAttribute("user");
 		AnimalDao animalDao = new AnimalDao(SearcherDataSource.getInstance().getDataSource());
-		List<Animal> userActivities = animalDao.getActivitiesByUser(user);
+		List<Animal> userActivities = animalDao.getActivitiesByUser(in);
 		req.setAttribute("userActivities", userActivities);
 		return "/home.jsp";
 	}

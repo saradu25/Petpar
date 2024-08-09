@@ -18,7 +18,7 @@ public class DeleteActivityHelper implements Helper {
 		AnimalDao animalDao =
 				new AnimalDao(SearcherDataSource.getInstance().getDataSource());
 		Animal animal =
-				animalDao.getActivitiesById(activityId);
+				animalDao.getAnimalById(activityId);
 		if(animal != null) {
 			animalDao.delete(animal);
 			response = true;

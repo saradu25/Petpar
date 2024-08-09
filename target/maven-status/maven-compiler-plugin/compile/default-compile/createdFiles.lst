@@ -1,0 +1,16 @@
+br\edu\ifsp\arq\ads\ifitness\model\daos\filters\ActivityFilter.class
+br\edu\ifsp\arq\ads\ifitness\model\daos\UserDao.class
+br\edu\ifsp\arq\ads\ifitness\model\entities\StatusAdoption.class
+br\edu\ifsp\arq\ads\ifitness\model\entities\SpecieType.class
+br\edu\ifsp\arq\ads\ifitness\servlets\helpers\AddUserHelper.class
+br\edu\ifsp\arq\ads\ifitness\model\dto\ActivityByType.class
+br\edu\ifsp\arq\ads\ifitness\model\entities\Gender.class
+br\edu\ifsp\arq\ads\ifitness\servlets\FrontControllerServlet.class
+br\edu\ifsp\arq\ads\ifitness\servlets\helpers\DeleteActivityHelper.class
+br\edu\ifsp\arq\ads\ifitness\utils\LocalDateTypeAdapter.class
+br\edu\ifsp\arq\ads\ifitness\utils\ValidationFilter.class
+br\edu\ifsp\arq\ads\ifitness\model\dto\ActivityByDay.class
+br\edu\ifsp\arq\ads\ifitness\servlets\helpers\LoginHelper.class
+br\edu\ifsp\arq\ads\ifitness\servlets\helpers\Helper.class
+br\edu\ifsp\arq\ads\ifitness\model\entities\User.class
+br\edu\ifsp\arq\ads\ifitness\model\entities\Institution.class

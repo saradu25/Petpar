@@ -7,7 +7,7 @@ import br.edu.ifsp.arq.ads.ifitness.model.entities.SpecieType;
 import br.edu.ifsp.arq.ads.ifitness.model.entities.StatusAdoption;
 import br.edu.ifsp.arq.ads.ifitness.model.entities.User;
 
-public class ActivityFilter {
+public class AnimalFilter {
 
 	private Institution institution;
 	

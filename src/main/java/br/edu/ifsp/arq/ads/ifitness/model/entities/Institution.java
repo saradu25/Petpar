@@ -13,7 +13,7 @@ public class Institution  implements Serializable {
     private String description;
     private String email;
     private String cpfOrCnpj;
-    private String number;
+    private String phoneNumber;
     private String password;
     private LocalDate createdAt;
 
@@ -57,13 +57,6 @@ public class Institution  implements Serializable {
         this.cpfOrCnpj = cpfOrCnpj;
     }
 
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
 
     public String getPassword() {
         return password;
@@ -79,6 +72,14 @@ public class Institution  implements Serializable {
 
     public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     @Override

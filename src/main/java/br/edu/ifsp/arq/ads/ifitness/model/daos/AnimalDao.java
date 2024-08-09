@@ -11,9 +11,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import br.edu.ifsp.arq.ads.ifitness.model.daos.filters.ActivityFilter;
-import br.edu.ifsp.arq.ads.ifitness.model.dto.ActivityByDay;
-import br.edu.ifsp.arq.ads.ifitness.model.dto.ActivityByType;
+import br.edu.ifsp.arq.ads.ifitness.model.daos.filters.AnimalFilter;
 import br.edu.ifsp.arq.ads.ifitness.model.entities.*;
 
 public class AnimalDao {
@@ -141,7 +139,7 @@ public class AnimalDao {
 		}
 	}
 
-	public List<Animal> getActivitiesByFilter(ActivityFilter filter) throws SQLException {
+	public List<Animal> getAnimalsByFilter(AnimalFilter filter) throws SQLException {
 		StringBuilder sql = 
 				new StringBuilder("select * from animal where institution_id=?");
 		List<Object> params = new ArrayList<>();
@@ -167,11 +165,11 @@ public class AnimalDao {
 			params.add(filter.getFinalDate());
 		}
 
-		return getActivityList(sql.toString(), params, filter.getInstitution());
+		return getAnimalList(sql.toString(), params, filter.getInstitution());
 	}
 
-	private List<Animal> getActivityList(String sql, List<Object> params,
-                                         Institution institution) throws SQLException {
+	private List<Animal> getAnimalList(String sql, List<Object> params,
+									   Institution institution) throws SQLException {
 		List<Animal> activities = new ArrayList<>();
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			for (int i = 0; i < params.size(); i++) {
@@ -185,52 +183,17 @@ public class AnimalDao {
 					animal.setDescription(rs.getString(3));
 					animal.setGender(Gender.valueOf(rs.getString(4)));
 					animal.setType(SpecieType.valueOf(rs.getString(5)));
-					animal.setDate(LocalDate.parse(rs.getDate(3).toString()));
-					animal.setDistance(rs.getDouble(4));
-					animal.setDuration(rs.getInt(5));
+					animal.setStatusAdoption(StatusAdoption.valueOf(rs.getString(6)));
+					animal.setPostedAt(LocalDate.parse(rs.getDate(7).toString()));
+					animal.setAdoptedAt(LocalDate.parse(rs.getDate(8).toString()));
+					User user = new User();
+					user.setId(rs.getLong(9));
+					animal.setUser(user);
 					animal.setInstitution(institution);
 					activities.add(animal);
 				}
 			}
 		}
 		return activities;
-	}
-	
-	public List<ActivityByType> getActivitiesStatisticsByType(User user) {
-		String sql = "select type, count(*) as activity_count from activity where user_id=? group by type";
-		List<ActivityByType> activities = new ArrayList<>();
-		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
-			ps.setLong(1, user.getId());
-			try (ResultSet rs = ps.executeQuery()) {
-				while (rs.next()) {
-					ActivityByType activityByType = new ActivityByType();
-					activityByType.setType(SpecieType.valueOf(rs.getString(1)).getType());
-					activityByType.setCount(rs.getInt(2));
-					activities.add(activityByType);
-				}
-			}
-			return activities;
-		} catch (SQLException sqlException) {
-			throw new RuntimeException("Erro durante a consulta", sqlException);
-		}
-	}
-	
-	public List<ActivityByDay> getActivitiesStatisticsByDay(User user) {
-		String sql = "select activity_date, SUM(distance) AS total_distance from activity where user_id=? group by activity_date";
-		List<ActivityByDay> activities = new ArrayList<>();
-		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
-			ps.setLong(1, user.getId());
-			try (ResultSet rs = ps.executeQuery()) {
-				while (rs.next()) {
-					ActivityByDay activityByDay = new ActivityByDay();
-					activityByDay.setDate(LocalDate.parse(rs.getDate(1).toString()));
-					activityByDay.setTotalDistance(rs.getLong(2));
-					activities.add(activityByDay);
-				}
-			}
-			return activities;
-		} catch (SQLException sqlException) {
-			throw new RuntimeException("Erro durante a consulta", sqlException);
-		}
 	}
 }

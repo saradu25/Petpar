@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import javax.sql.DataSource;
@@ -71,15 +72,17 @@ public class UserDao {
 			return false;
 		}
 		String sql = "insert into user (name, email, password, "
-				+ "date_of_birth, gender, active) values (?,?,?,?,?,?)";
+				+ "date_of_birth, cpf, phone_number, gender, created_at) values (?,?,?,?,?,?,?,?)";
 		try(Connection conn = dataSource.getConnection(); 
 				PreparedStatement ps = conn.prepareStatement(sql)){
 			ps.setString(1, user.getName());
 			ps.setString(2, user.getEmail());
 			ps.setString(3, user.getPassword());
 			ps.setDate(4, Date.valueOf(user.getDateOfBirth()));
+			ps.setString(5, user.getCpf());
+			ps.setString(6, user.getPhoneNumber());
 			ps.setString(5, user.getGender().toString());
-			ps.setBoolean(6, true);
+			ps.setDate(6, Date.valueOf(LocalDate.now()));
 			ps.executeUpdate();
 		}catch (SQLException e) {
 			throw new RuntimeException("Erro durante a consulta", e);

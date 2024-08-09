@@ -1,7 +1,5 @@
 package br.edu.ifsp.arq.ads.ifitness.model.entities;
 
-import jdk.vm.ci.meta.Local;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -11,10 +9,10 @@ public class Donation implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	private Double ammount;
+	private Double amount;
 	private LocalDate data;
 	private Institution institution;
-	private User donor;
+	private User user;
 
 	public Long getId() {
 		return id;
@@ -24,12 +22,12 @@ public class Donation implements Serializable {
 		this.id = id;
 	}
 
-	public Double getAmmount() {
-		return ammount;
+	public Double getAmount() {
+		return amount;
 	}
 
-	public void setAmmount(Double ammount) {
-		this.ammount = ammount;
+	public void setAmount(Double amount) {
+		this.amount = amount;
 	}
 
 	public LocalDate getData() {
@@ -48,12 +46,12 @@ public class Donation implements Serializable {
 		this.institution = institution;
 	}
 
-	public User getDonor() {
-		return donor;
+	public User getUser() {
+		return user;
 	}
 
-	public void setDonor(User donor) {
-		this.donor = donor;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
