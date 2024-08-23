@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #b5b6b9; /* Use um tom de azul como no design */
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    display: block;
+    width: 200px;
+    padding: 15px;
+    margin: 10px auto;
+    background-color: #e6a87e;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ffcc99;
+}
+
+.Logo {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 550px;
+}
+
+
+
