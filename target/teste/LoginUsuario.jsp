@@ -1,35 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - PetPar</title>
-    <link rel="stylesheet" href="css/x.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
 </head>
-<body>
-<div class="login-container">
-    <header>
-        <h2>Login</h2>
+<body class="bg-custom d-flex justify-content-center align-items-center">
+<div class="login-container shadow-lg p-5 rounded">
+    <header class="mb-4 text-center">
+        <h2 class="text-white">Login</h2>
     </header>
-    <br></br>
+    <form action="ControllerServlet?action=login" method="post">
 
-    <form action="ControllerServlet?action=login" method="post" class="login-form">
-        <div class="form-group">
-            <label for="email">E-mail:</label>
+        <div class="inputBox">
+            <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
         </div>
 
-        <br></br>
-
-        <div class="form-group">
+        <div class="inputBox">
             <label for="password">Senha:</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <br></br>
-        <button type="submit">Entrar</button>
+
+        <button type="submit" class="btn btn-adopt w-100">Entrar</button>
     </form>
-    <p>Não tem conta? <a href="paginaRecebimento.jsp">Cadastre-se aqui</a></p>
-    <p><a href="#">Esqueceu sua senha?</a></p>
+    <div class="text-center mt-3">
+        <p class="text-white">Não tem conta? <a href="paginaRecebimento.jsp" class="text-white">Cadastre-se aqui</a></p>
+        <p><a href="#" class="text-white">Esqueceu sua senha?</a></p>
+    </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

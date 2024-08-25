@@ -57,7 +57,7 @@
             <button type="submit">Cadastrar</button>
         </fieldset>
     </form>
-    <p>Já tem uma conta? <a href="LoginInstituicao.jsp">Faça login</a></p>
+    <p>Já tem uma conta? <a href="LoginInstitution.jsp">Faça login</a></p>
 </div>
 </body>
 </html>
