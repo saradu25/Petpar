@@ -21,7 +21,7 @@
         <p>Administra os animais y adoções.</p>
     </c:when>
     <c:otherwise>
-        <p>Por favor, <a href="login.jsp">iniciar sessão</a> para continuar.</p>
+        <p>Por favor, <a href="paginaRecebimento.jsp">iniciar sessão</a> para continuar.</p>
     </c:otherwise>
 </c:choose>
 </body>

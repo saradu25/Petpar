@@ -28,7 +28,7 @@
         <br></br>
         <button type="submit">Entrar</button>
     </form>
-    <p>Não tem conta? <a href="login.jsp">Cadastre-se aqui</a></p>
+    <p>Não tem conta? <a href="paginaRecebimento.jsp">Cadastre-se aqui</a></p>
     <p><a href="#">Esqueceu sua senha?</a></p>
 </div>
 </body>
