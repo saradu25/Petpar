@@ -36,7 +36,7 @@ public class AddInstitutionHelper implements Helper {
 			return "/institutionLogin.jsp";
 		}else {
 			req.setAttribute("result", "notRegistered");
-			return "/institution-register.jsp";
+			return "/institution-userRegister.jsp";
 		}
 	}
 

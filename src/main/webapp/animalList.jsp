@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Animais para Adoção - PetPar</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
 <h2>Animais para Adoção</h2>

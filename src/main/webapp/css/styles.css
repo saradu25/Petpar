@@ -6,16 +6,23 @@
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #b5b6b9; /* Use um tom de azul como no design */
+    background-color: #b5b6b9;
     color: #fff;
+    font-family: 'Arial', sans-serif;
 }
 
 .container {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    position: relative;
+}
+
+header {
+    text-align: right;
 }
 
 header h1 {
@@ -30,13 +37,14 @@ header p {
 
 .buttons {
     margin-top: 20px;
+    text-align: right;
 }
 
 .btn {
     display: block;
     width: 200px;
     padding: 15px;
-    margin: 10px auto;
+    margin: 10px 0;
     background-color: #e6a87e;
     border-radius: 25px;
     text-decoration: none;
@@ -51,11 +59,17 @@ header p {
 }
 
 .Logo {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    width: 550px;
+    max-width: 40%;
+    height: auto;
+    object-fit: contain;
 }
 
 
+h1, p {
+    margin: 0;
+}
 
+img {
+    max-width: 100%;
+    height: auto;
+}

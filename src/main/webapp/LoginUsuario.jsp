@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Login - PetPar</title>
-    <link rel="stylesheet" href="css/teste.css">
+    <link rel="stylesheet" href="css/x.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="login-container">
@@ -27,7 +28,7 @@
         <br></br>
         <button type="submit">Entrar</button>
     </form>
-    <p>Não tem conta? <a href="register.jsp">Cadastre-se aqui</a></p>
+    <p>Não tem conta? <a href="login.jsp">Cadastre-se aqui</a></p>
     <p><a href="#">Esqueceu sua senha?</a></p>
 </div>
 </body>

@@ -39,7 +39,7 @@ public class AddUserHelper implements Helper {
 			return "/user-login.jsp";
 		}else {
 			req.setAttribute("result", "notRegistered");
-			return "/user-register.jsp";
+			return "/user-userRegister.jsp";
 		}
 	}
 

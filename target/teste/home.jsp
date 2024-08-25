@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Home - PetPar</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/x.css">
 </head>
 <body>
 <h1>Bem-vindo a PetPar</h1>

@@ -30,6 +30,6 @@ public class UserAnimalAdoptionHelper implements Helper {
             req.setAttribute("result", "registered");
         }
         //TODO tela de animal em adoção pendente?
-        return "/activity-register.jsp";
+        return "/activity-userRegister.jsp";
     }
 }
