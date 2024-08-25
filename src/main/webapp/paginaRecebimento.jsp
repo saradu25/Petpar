@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -17,19 +18,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Inicio</a>
+                <a href="paginaRecebimento.jsp" class="nav-link" href="#">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Adotar</a>
+                <a href="animalList.jsp" class="nav-link" href="#">Quero adotar</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">ONG/Instituciones</a>
+                <a href="donations.jsp" class="nav-link" href="#">Como ajudar?</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Faça parte</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contato</a>
+                <a href="contato.jsp" class="nav-link" href="#">Contato</a>
             </li>
         </ul>
     </div>
@@ -58,7 +56,6 @@
     </button>
 </div>
 
-<!-- Conteúdo Principal -->
 <div class="container-fluid vh-100 d-flex align-items-center justify-content-center bg-custom">
     <div class="row w-100">
         <div class="col-md-6 d-flex justify-content-center align-items-center">
@@ -69,7 +66,7 @@
             <p class="lead">Encontre seu novo amigo aqui!</p>
             <div class="btn-container">
                 <a href="userRegister.jsp" class="btn btn-adopt btn-lg mb-3 btn-custom">Quero adotar</a>
-                <a href="institutionRegister.jsp" class="btn btn-institution btn-lg btn-custom">Instituição</a>
+                <a href="institutionRegister.jsp" class="btn btn-institution btn-lg btn-custom">Sou uma instituição</a>
             </div>
         </div>
     </div>
