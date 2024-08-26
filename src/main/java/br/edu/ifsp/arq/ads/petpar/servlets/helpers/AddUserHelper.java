@@ -9,6 +9,7 @@ import br.edu.ifsp.arq.ads.petpar.utils.SearcherDataSource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
+import java.util.Locale;
 
 public class AddUserHelper implements Helper {
 
@@ -17,7 +18,7 @@ public class AddUserHelper implements Helper {
 		String cpf = req.getParameter("cpf");
 		String name = req.getParameter("name");
 		String email = req.getParameter("email");
-		String password = req.getParameter("password");
+		String password = req.getParameter("senha");
 		String dateOfBirth = req.getParameter("dateOfBirth");
 		String phoneNumber = req.getParameter("phoneNumber");
 		String gender = req.getParameter("gender");
@@ -30,16 +31,16 @@ public class AddUserHelper implements Helper {
 		user.setDateOfBirth(LocalDate.parse(dateOfBirth));
 		user.setCreatedAt(LocalDate.now());
 		user.setPhoneNumber(phoneNumber);
-		user.setGender(Gender.valueOf(gender));
+		user.setGender(Gender.valueOf(gender.toUpperCase(Locale.ROOT)));
 		
 		UserDao userDao = new UserDao(SearcherDataSource.getInstance().getDataSource());
 		
 		if(userDao.save(user)) {
 			req.setAttribute("result", "registered");
-			return "/user-login.jsp";
+			return "/LoginUsuario.jsp";
 		}else {
 			req.setAttribute("result", "notRegistered");
-			return "/user-userRegister.jsp";
+			return "/userRegister.jsp";
 		}
 	}
 

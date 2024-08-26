@@ -9,12 +9,12 @@
 </head>
 <body>
 <div class="cadastro-container">
-    <form action="CadastroServlet" method="post">
+    <form action="ControllerServlet" method="post">
         <fieldset>
             <legend>Cadastro de Adotante</legend>
             <div class="inputBox">
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="name" required>
+                <input type="text" id="name" name="name" required>
             </div>
             <div class="inputBox">
                 <label for="email">Email:</label>
@@ -26,7 +26,7 @@
             </div>
             <div class="inputBox">
                 <label for="dataNascimento">Data de Nascimento:</label>
-                <input type="date" id="dataNascimento" name="date_of_birth" required>
+                <input type="date" id="dateOfBirth" name="dateOfBirth" required>
             </div>
             <div class="inputBox">
                 <label for="cpf">CPF:</label>
@@ -34,18 +34,18 @@
             </div>
             <div class="inputBox">
                 <label for="telefone">Número de Telefone:</label>
-                <input type="text" id="telefone" name="phone_number" required>
+                <input type="text" id="phoneNumber" name="phoneNumber" required>
             </div>
             <div class="inputBox">
                 <label for="genero">Gênero:</label>
                 <select id="genero" name="gender" required>
                     <option value="" disabled selected>Selecione</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="feminino">Feminino</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
                     <option value="outro">Outro</option>
                 </select>
             </div>
-            <button type="submit">Cadastrar</button>
+            <button type="submit" name="action" value="addUser">Cadastrar</button>
         </fieldset>
     </form>
     <p>Já tem uma conta? <a href="LoginUsuario.jsp">Faça login</a></p>
