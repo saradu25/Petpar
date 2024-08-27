@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="cadastro-container">
-    <form action="CadastroInstituicaoServlet" method="post">
+    <form action="ControllerServlet" method="post">
         <fieldset>
             <legend>Cadastro de Instituição</legend>
 

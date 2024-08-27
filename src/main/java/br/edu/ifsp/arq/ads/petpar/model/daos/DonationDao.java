@@ -18,7 +18,7 @@ public class DonationDao {
 	}
 
 	public Boolean save(Donation donation){
-		String sql = "insert into donation (amount, data, institution_id, user_id)" +
+		String sql = "insert into donations (amount, data, institution_id, user_id)" +
 				" values(?,?,?,?)";
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setDouble(1, donation.getAmount());
@@ -33,7 +33,7 @@ public class DonationDao {
 	}
 
 	public List<Donation> getDonationByInstitution(Institution institution) {
-		String sql = "select * from donation where institution_id=?";
+		String sql = "select * from donations where institution_id=?";
 		List<Donation> donations = new ArrayList<>();
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setLong(1, institution.getId());
@@ -58,7 +58,7 @@ public class DonationDao {
 	}
 
 	public List<Donation> getDonationByUser(User user) {
-		String sql = "select * from donation where user_id=?";
+		String sql = "select * from donations where user_id=?";
 		List<Donation> donations = new ArrayList<>();
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setLong(1, user.getId());
@@ -84,7 +84,7 @@ public class DonationDao {
 
 	public List<Donation> getDonationByFilter(DonationFilter filter) throws SQLException {
 		StringBuilder sql = 
-				new StringBuilder("select * from donation where institution_id=?");
+				new StringBuilder("select * from donations where institution_id=?");
 		List<Object> params = new ArrayList<>();
 		params.add(filter.getInstitution().getId());
 

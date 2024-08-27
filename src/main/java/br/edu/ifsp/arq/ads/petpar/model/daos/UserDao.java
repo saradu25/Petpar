@@ -25,7 +25,7 @@ public class UserDao {
 	public Optional<User> getUserByEmailAndPassword(String email, String password) {
 		String passwordEncripted = PasswordEncode.encode(password);
 
-		String sql = "select id,name,email from user where email=? and password=?";
+		String sql = "select id,name,email from users where email=? and password=?";
 		Optional<User> optional = Optional.empty();
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setString(1, email);
@@ -46,7 +46,7 @@ public class UserDao {
 	}
 	
 	public Optional<User> getUserByEmail(String email){
-		String sql = "select id,name,email from user where email=?";
+		String sql = "select id,name,email from users where email=?";
 		Optional<User> optional = Optional.empty();
 		try(Connection conn = dataSource.getConnection(); 
 				PreparedStatement ps = conn.prepareStatement(sql)){
@@ -71,7 +71,7 @@ public class UserDao {
 		if(optional.isPresent()) {
 			return false;
 		}
-		String sql = "insert into user (name, email, password, "
+		String sql = "insert into users (name, email, password, "
 				+ "date_of_birth, cpf, phone_number, gender, created_at) values (?,?,?,?,?,?,?,?)";
 		try(Connection conn = dataSource.getConnection(); 
 				PreparedStatement ps = conn.prepareStatement(sql)){
@@ -81,8 +81,8 @@ public class UserDao {
 			ps.setDate(4, Date.valueOf(user.getDateOfBirth()));
 			ps.setString(5, user.getCpf());
 			ps.setString(6, user.getPhoneNumber());
-			ps.setString(5, user.getGender().toString());
-			ps.setDate(6, Date.valueOf(LocalDate.now()));
+			ps.setString(7, user.getGender().toString());
+			ps.setDate(8, Date.valueOf(user.getCreatedAt()));
 			ps.executeUpdate();
 		}catch (SQLException e) {
 			throw new RuntimeException("Erro durante a consulta", e);

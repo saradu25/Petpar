@@ -49,7 +49,7 @@ public class UserSearchAnimalsHelper implements Helper {
 		req.setAttribute("filteredAnimals", animals);
 		//TODO
 		// qual seria a Home?
-		return "/home.jsp";
+		return "/paginaRecebimento.jsp";
 	}
 
 }

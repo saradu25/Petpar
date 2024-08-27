@@ -18,7 +18,7 @@ public class InstitutionDao {
 	public Optional<Institution> getUserByEmailAndPassword(String email, String password) {
 		String passwordEncripted = PasswordEncode.encode(password);
 
-		String sql = "select id,name,email from institution where email=? and password=?";
+		String sql = "select id,name,email from institutions where email=? and password=?";
 		Optional<Institution> optional = Optional.empty();
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setString(1, email);
@@ -39,7 +39,7 @@ public class InstitutionDao {
 	}
 
 	public Optional<Institution> getUserByEmail(String email){
-		String sql = "select id,name,email from institution where email=?";
+		String sql = "select id,name,email from institutions where email=?";
 		Optional<Institution> optional = Optional.empty();
 		try(Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql)){
@@ -64,8 +64,8 @@ public class InstitutionDao {
 		if(optional.isPresent()) {
 			return false;
 		}
-		String sql = "insert into institution (name, description, email, "
-				+ " cpf_cnpj, phone_number, password, created_at) values (?,?,?,?,?,?,?,?)";
+		String sql = "insert into institutions (name, description, email, "
+				+ " cpf_or_cnpj, phone_number, password, created_at) values (?,?,?,?,?,?,?)";
 		try(Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql)){
 			ps.setString(1, institution.getName());

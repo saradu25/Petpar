@@ -40,9 +40,9 @@
                 <label for="genero">Gênero:</label>
                 <select id="genero" name="gender" required>
                     <option value="" disabled selected>Selecione</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
-                    <option value="outro">Outro</option>
+                    <option value="MASCULINO">Masculino</option>
+                    <option value="FEMININO">Feminino</option>
+                    <option value="OUTRO">Outro</option>
                 </select>
             </div>
             <button type="submit" name="action" value="addUser">Cadastrar</button>

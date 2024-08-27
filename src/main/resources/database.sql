@@ -1,8 +1,8 @@
 -- Criar o banco de dados
-CREATE DATABASE PetParDB;
+CREATE DATABASE PetPar;
 
 -- Usar o banco de dados criado
-USE PetParDB;
+USE PetPar;
 
 -- Tabela de usuários
 CREATE TABLE users (

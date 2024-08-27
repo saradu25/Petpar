@@ -23,7 +23,7 @@ public class AnimalDao {
 	}
 
 	public Boolean save(Animal animal){
-		String sql = "insert into animal (name, description, gender, birth_date, type, status_adoption, posted_at, adopted_at, institution_id)" +
+		String sql = "insert into animals (name, description, gender, birth_date, type, status_adoption, posted_at, adopted_at, institution_id)" +
 				" values(?,?,?,?,?,?,?,?,?)";
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setString(1, animal.getName());
@@ -43,7 +43,7 @@ public class AnimalDao {
 	}
 
 	public Boolean update(Animal animal) {
-		String sql = "update animal set " + "name=?," + "description=?," + "gender=?," + "type=?,"+ "status_adoption=?,"+ "posted_at=?," + "adopted_at=?,"
+		String sql = "update animals set " + "name=?," + "description=?," + "gender=?," + "type=?,"+ "status_adoption=?,"+ "posted_at=?," + "adopted_at=?,"
 				+ "institution_id=?," + "user_id=?" + " where id=?";
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setString(1, animal.getName());
@@ -65,7 +65,7 @@ public class AnimalDao {
 	}
 
 	public List<Animal> getAnimalByInstitution(Institution institution) {
-		String sql = "select * from animal where user_id=?";
+		String sql = "select * from animals where user_id=?";
 		List<Animal> animals = new ArrayList<>();
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setLong(1, institution.getId());
@@ -96,7 +96,7 @@ public class AnimalDao {
 	}
 
 	public Animal getAnimalById(Long id) {
-		String sql = "select * from activity where id=?";
+		String sql = "select * from animals where id=?";
 		Animal animal = null;
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setLong(1, id);
@@ -129,7 +129,7 @@ public class AnimalDao {
 	}
 
 	public Boolean delete(Animal animal) {
-		String sql = "delete from activity where id=?";
+		String sql = "delete from animals where id=?";
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setLong(1, animal.getId());
 			ps.executeUpdate();
@@ -141,7 +141,7 @@ public class AnimalDao {
 
 	public List<Animal> getAnimalsByFilter(AnimalFilter filter) throws SQLException {
 		StringBuilder sql = 
-				new StringBuilder("select * from animal where 1=1");
+				new StringBuilder("select * from animals where 1=1");
 		List<Object> params = new ArrayList<>();
 
 

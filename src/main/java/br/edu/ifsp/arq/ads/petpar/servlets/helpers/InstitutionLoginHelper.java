@@ -24,10 +24,11 @@ public class InstitutionLoginHelper implements Helper {
 			session.setAttribute("institution", institution);
 			//TODO
 			// ir pra tela de listar animais em adoção da instituição
-			return "/ControllerServlet?action=institutionSearchAnimals";
+			//return "/ControllerServlet?action=institutionSearchAnimals";
+			return "/paginaRecebimento.jsp";
 		}else {
 			req.setAttribute("result", "loginError");
-			return "/institutionLogin.jsp";
+			return "/LoginInstitution.jsp";
 		}
 	}
 
