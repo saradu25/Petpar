@@ -14,7 +14,7 @@ public class UserLoginHelper implements Helper {
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		String email = req.getParameter("email");
-		String password = req.getParameter("password");
+		String password = req.getParameter("texPassword");
 		UserDao userDao = new UserDao(SearcherDataSource.getInstance().getDataSource());
 		Optional<User> optional = userDao.getUserByEmailAndPassword(email, password);
 		if(optional.isPresent()) {

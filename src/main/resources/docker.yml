@@ -8,8 +8,9 @@
 #  * abrir o mysql: mysql -u root -p
 #  * criar base: CREATE DATABASE MYSQLTESTE;
 #  * resetar usuarios: update mysql.user set host='%' where user='root';
-
+# FLUSH PRIVILEGES;
 # Referencia: https://medium.com/@alan-vieira/rodando-mysql-no-docker-e6e05b727196
+# https://www.youtube.com/watch?v=sXtfWahVEvk
 version: '3.8'
 services:
   db:

@@ -14,7 +14,7 @@ public class InstitutionLoginHelper implements Helper {
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		String email = req.getParameter("email");
-		String password = req.getParameter("password");
+		String password = req.getParameter("texPassword");
 		InstitutionDao userDao = new InstitutionDao(SearcherDataSource.getInstance().getDataSource());
 		Optional<Institution> optional = userDao.getUserByEmailAndPassword(email, password);
 		if(optional.isPresent()) {

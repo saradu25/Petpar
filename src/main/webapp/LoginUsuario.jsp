@@ -21,10 +21,10 @@
 
         <div class="inputBox">
             <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="texPassword" name="texPassword" required>
         </div>
 
-        <button type="submit" class="btn btn-adopt w-100">Entrar</button>
+        <button type="submit" class="btn btn-adopt w-100" name="action" value="userLogin">Entrar</button>
     </form>
     <div class="text-center mt-3">
         <p class="text-white">Não tem conta? <a href="paginaRecebimento.jsp" class="text-white">Cadastre-se aqui</a></p>

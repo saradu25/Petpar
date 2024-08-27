@@ -41,7 +41,7 @@
 
             <div class="inputBox">
                 <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="texPassword" name="texPassword" required>
             </div>
 
             <div class="inputBox">
@@ -51,10 +51,10 @@
 
             <div class="inputBox">
                 <label for="phone_number">Número de Telefone:</label>
-                <input type="text" id="phone_number" name="phone_number" required>
+                <input type="text" id="phoneNumber" name="phoneNumber" required>
             </div>
 
-            <button type="submit">Cadastrar</button>
+            <button type="submit" name="action" value="addInstitution">Cadastrar</button>
         </fieldset>
     </form>
     <p>Já tem uma conta? <a href="LoginInstitution.jsp">Faça login</a></p>
