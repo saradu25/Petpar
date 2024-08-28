@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="cadastro-container">
-    <form action="ControllerServlet" method="post">
+    <form action="ControllerServlet" method="post" id="registerForm">
         <fieldset>
             <legend>Cadastro de Instituição</legend>
 
@@ -59,5 +59,8 @@
     </form>
     <p>Já tem uma conta? <a href="LoginInstitution.jsp">Faça login</a></p>
 </div>
+<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="js/register.js"></script>
 </body>
 </html>

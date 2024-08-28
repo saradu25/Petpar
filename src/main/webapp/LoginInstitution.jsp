@@ -12,7 +12,7 @@
   <header class="mb-4 text-center">
     <h2 class="text-white">Login</h2>
   </header>
-  <form action="ControllerServlet?action=institutionLogin" method="post">
+  <form action="ControllerServlet" method="post" >
 
     <div class="inputBox">
       <label for="email">Email:</label>
