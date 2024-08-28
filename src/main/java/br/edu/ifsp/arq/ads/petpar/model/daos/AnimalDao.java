@@ -23,8 +23,8 @@ public class AnimalDao {
 	}
 
 	public Boolean save(Animal animal){
-		String sql = "insert into animals (name, description, gender, birth_date, type, status_adoption, posted_at, adopted_at, institution_id)" +
-				" values(?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into animals (name, description, gender, birth_date, type, status_adoption, posted_at, institution_id)" +
+				" values(?,?,?,?,?,?,?,?)";
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setString(1, animal.getName());
 			ps.setString(2, animal.getDescription());
@@ -33,8 +33,8 @@ public class AnimalDao {
 			ps.setString(5, animal.getType().getName());
 			ps.setString(6, animal.getStatusAdoption().getValue());
 			ps.setDate(7, Date.valueOf(animal.getPostedAt()));
-			ps.setDate(8, Date.valueOf(animal.getAdoptedAt()));
-			ps.setLong(9, animal.getInstitution().getId());
+			//ps.setDate(8, Date.valueOf(animal.getAdoptedAt()));
+			ps.setLong(8, animal.getInstitution().getId());
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException sqlException) {

@@ -35,7 +35,7 @@ CREATE TABLE animals (
     description TEXT,
     gender ENUM('MASCULINO', 'FEMININO', 'OUTRO', 'PREFIRO_NAO_DIZER'),
     birth_date DATE,
-    type ENUM('CACHORRO', 'GATO', 'ROEDOR', 'PEIXE') NOT NULL,
+    type ENUM('CACHORRO', 'GATO', 'ROEDOR', 'PEIXE', 'OUTRO') NOT NULL,
     status_adoption ENUM('IN_PROGRESS', 'PENDING', 'DONE') DEFAULT 'PENDING',
     posted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     adopted_at TIMESTAMP NULL,

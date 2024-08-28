@@ -32,12 +32,17 @@ public class AddAnimalHelper implements Helper {
 		animal.setType(type);
 		animal.setPostedAt(postedAt);
 		animal.setInstitution(institution);
+		animal.setStatusAdoption(StatusAdoption.PENDING);
+
 
 		if(animalDao.save(animal)) {
 			req.setAttribute("result", "registered");
+			return "/paginaRecebimento.jsp";
+		}else {
+			req.setAttribute("result", "notRegistered");
+			return "/userRegister.jsp";
 		}
 		//TODO tela de animal em adoção pendente?
-		return "/activity-userRegister.jsp";
 	}
 
 }
