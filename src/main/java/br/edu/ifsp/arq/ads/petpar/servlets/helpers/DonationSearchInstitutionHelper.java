@@ -45,7 +45,7 @@ public class DonationSearchInstitutionHelper implements Helper {
 		req.setAttribute("institutionDonation", donations);
 		//TODO
 		// qual seria a Home?
-		return "/home.jsp";
+		return "/dashboard.jsp";
 	}
 
 }
