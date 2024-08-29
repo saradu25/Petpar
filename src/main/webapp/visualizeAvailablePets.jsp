@@ -1,3 +1,5 @@
+<%@ page import="br.edu.ifsp.arq.ads.petpar.model.entities.Animal" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -48,7 +50,7 @@
         %>
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-                <img src="<%= animal.getImageUrl() %>" class="card-img-top" alt="<%= animal.getName() %>">
+<%--                <img src="<%= animal.getImageUrl() %>" class="card-img-top" alt="<%= animal.getName() %>">--%>
                 <div class="card-body">
                     <h5 class="card-title BLANCOX-1-hex"><%= animal.getName() %></h5>
                     <p class="card-text"><%= animal.getDescription() %></p>
