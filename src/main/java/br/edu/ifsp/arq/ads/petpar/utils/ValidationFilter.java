@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 //TODO telas
 @WebFilter(urlPatterns = {"/homeServlet","/activityRegister",
-		"/activitySearch", "/home.jsp","/activity-userRegister.jsp",
+		"/activitySearch", "/dashboard.jsp","/activity-userRegister.jsp",
 		"/statistics.jsp"}, 
 		filterName = "Authorization")
 public class ValidationFilter implements Filter {

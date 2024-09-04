@@ -52,7 +52,7 @@ public class InstitutionSearchAnimalsHelper implements Helper {
 		req.setAttribute("institutionFilteredAnimals", animals);
 		//TODO
 		// qual seria a Home?
-		return "/home.jsp";
+		return "/dashboard.jsp";
 	}
 
 }

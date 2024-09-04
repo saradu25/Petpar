@@ -13,7 +13,7 @@
     <header class="mb-4 text-center">
         <h2 class="text-white">Login</h2>
     </header>
-    <form action="ControllerServlet" method="post">
+    <form action="ControllerServlet?action=login" method="post">
 
         <div class="inputBox">
             <label for="email">Email:</label>
@@ -22,10 +22,10 @@
 
         <div class="inputBox">
             <label for="password">Senha:</label>
-            <input type="password" id="texPassword" name="texPassword" required>
+            <input type="password" id="password" name="password" required>
         </div>
 
-        <button type="submit" class="btn btn-adopt w-100" name="action" value="userLogin">Entrar</button>
+        <button type="submit" class="btn btn-adopt w-100">Entrar</button>
     </form>
     <div class="text-center mt-3">
         <p class="text-white">Não tem conta? <a href="paginaRecebimento.jsp" class="text-white">Cadastre-se aqui</a></p>
