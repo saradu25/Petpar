@@ -2,7 +2,7 @@ package br.edu.ifsp.arq.ads.petpar.servlets.helpers;
 
 import br.edu.ifsp.arq.ads.petpar.model.daos.AnimalDao;
 import br.edu.ifsp.arq.ads.petpar.model.entities.Animal;
-import br.edu.ifsp.arq.ads.petpar.model.entities.StatusAdoption;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.StatusAdoption;
 import br.edu.ifsp.arq.ads.petpar.model.entities.User;
 import br.edu.ifsp.arq.ads.petpar.utils.SearcherDataSource;
 

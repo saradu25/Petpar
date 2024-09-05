@@ -49,6 +49,7 @@ CREATE TABLE animals (
 CREATE TABLE donations (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     amount DECIMAL(10, 2) NOT NULL,
+    paymentMethod ENUM('CARTAO', 'PIX'),
     data DATE NOT NULL,
     institution_id BIGINT NOT NULL,
     user_id BIGINT NOT NULL,

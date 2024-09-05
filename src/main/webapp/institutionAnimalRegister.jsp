@@ -8,28 +8,28 @@
     <link rel="stylesheet" href="css/cadastro.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="home.jsp">PetPar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a href="institutionAnimalList.jsp" class="nav-link">Lista de Pets</a>
-            </li>
-            <li class="nav-item">
-                <a href="institutionAnimalRegister.jsp" class="nav-link">Cadastro de Pets</a>
-            </li>
-            <li class="nav-item">
-                <a href="donationInstitutionList.jsp" class="nav-link">Lista de doações</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="ControllerServlet?action=logout" >Logout</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">PetPar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a href="institutionAnimalList.jsp" class="nav-link" href="#">Lista de Pets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="institutionAnimalRegister.jsp" class="nav-link" href="#">Cadastro de Pets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="donationInstitutionList.jsp" class="nav-link" href="#">Lista de doações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ControllerServlet?action=logout" >Logout</a>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
 
 <div class="cadastro-container">
     <form action="ControllerServlet" method="post">

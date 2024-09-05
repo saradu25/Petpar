@@ -1,5 +1,9 @@
 package br.edu.ifsp.arq.ads.petpar.model.entities;
 
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.Gender;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.SpecieType;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.StatusAdoption;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;

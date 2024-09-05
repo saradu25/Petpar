@@ -4,8 +4,8 @@ import br.edu.ifsp.arq.ads.petpar.model.daos.AnimalDao;
 import br.edu.ifsp.arq.ads.petpar.model.daos.filters.AnimalFilter;
 import br.edu.ifsp.arq.ads.petpar.model.entities.Animal;
 import br.edu.ifsp.arq.ads.petpar.model.entities.Institution;
-import br.edu.ifsp.arq.ads.petpar.model.entities.SpecieType;
-import br.edu.ifsp.arq.ads.petpar.model.entities.StatusAdoption;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.SpecieType;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.StatusAdoption;
 import br.edu.ifsp.arq.ads.petpar.utils.SearcherDataSource;
 import com.mysql.jdbc.StringUtils;
 

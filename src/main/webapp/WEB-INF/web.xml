@@ -78,4 +78,16 @@
     <param-value>br.edu.ifsp.arq.ads.petpar.servlets.helpers.UserSearchAnimalsHelper</param-value>
   </context-param>
 
+  <context-param>
+    <param-name>institutionList</param-name>
+    <param-value>br.edu.ifsp.arq.ads.petpar.servlets.helpers.InstitutionSearchHelper</param-value>
+  </context-param>
+
+  title
+  <context-param>
+    <param-name>initDonation</param-name>
+    <param-value>br.edu.ifsp.arq.ads.petpar.servlets.helpers.InitDonationHelper</param-value>
+  </context-param>
+
+
 </web-app>

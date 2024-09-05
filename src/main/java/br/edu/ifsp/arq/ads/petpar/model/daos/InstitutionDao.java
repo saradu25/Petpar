@@ -5,6 +5,8 @@ import br.edu.ifsp.arq.ads.petpar.utils.PasswordEncode;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class InstitutionDao {
@@ -102,4 +104,27 @@ public class InstitutionDao {
 		}
 		return true;
 	}
+
+    public List<Institution> getAll() {
+		String sql = "select * from institutions";
+		List<Institution> list = new ArrayList<>();
+		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+			try (ResultSet rs = ps.executeQuery()) {
+				while (rs.next()) {
+					Institution institution = new Institution();
+
+					institution.setId(rs.getLong(1));
+					institution.setName(rs.getString(2));
+					institution.setEmail(rs.getString(4));
+					institution.setCpfOrCnpj(rs.getString(5));
+					institution.setPhoneNumber(rs.getString(6));
+
+					list.add(institution);
+				}
+			}
+			return list;
+		} catch (SQLException sqlException) {
+			throw new RuntimeException("Erro durante a consulta", sqlException);
+		}
+    }
 }

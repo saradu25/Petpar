@@ -1,4 +1,4 @@
-package br.edu.ifsp.arq.ads.petpar.model.entities;
+package br.edu.ifsp.arq.ads.petpar.model.entities.enums;
 
 public enum StatusAdoption {
 
