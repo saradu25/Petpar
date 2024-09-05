@@ -1,0 +1,54 @@
+/* Ajustes gerais */
+body {
+    background-color: #D9B596;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.bg-custom-header {
+    background-color: #8C593B;
+}
+
+.bg-custom-body {
+    background-color: #FFF5EB;
+}
+
+.btn-custom {
+    background-color: #BF793B;
+    border-color: #BF793B;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.btn-custom:hover {
+    background-color: #BF8F73;
+    color: black;
+}
+
+/* Formatação do formulário */
+.form-control-lg {
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+/* Estilo para QR Code */
+.qr-code {
+    max-width: 200px;
+    margin-top: 20px;
+}
+
+/* Margens e espaçamento adicionais */
+.card {
+    border-radius: 15px;
+}
+
+.card-header {
+    font-size: 1.5rem;
+    padding: 20px;
+}
+
+.card-body {
+    padding: 40px;
+}
