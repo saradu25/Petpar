@@ -22,10 +22,7 @@ public class UserLoginHelper implements Helper {
 			HttpSession session = req.getSession();
 			session.setMaxInactiveInterval(600);
 			session.setAttribute("user", user);
-			//TODO
-			// ir pra tela de listar animais em adoção disponiveis
-			// return "/ControllerServlet?action=userSearchAnimals";
-			return "/paginaRecebimento.jsp";
+			return "/userAnimalList.jsp";
 		}else {
 			req.setAttribute("result", "loginError");
 			return "/userLogin.jsp";

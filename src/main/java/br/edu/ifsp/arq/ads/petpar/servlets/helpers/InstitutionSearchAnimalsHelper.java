@@ -5,6 +5,7 @@ import br.edu.ifsp.arq.ads.petpar.model.daos.filters.AnimalFilter;
 import br.edu.ifsp.arq.ads.petpar.model.entities.Animal;
 import br.edu.ifsp.arq.ads.petpar.model.entities.Institution;
 import br.edu.ifsp.arq.ads.petpar.model.entities.SpecieType;
+import br.edu.ifsp.arq.ads.petpar.model.entities.StatusAdoption;
 import br.edu.ifsp.arq.ads.petpar.utils.SearcherDataSource;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,12 @@ public class InstitutionSearchAnimalsHelper implements Helper {
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		String type = req.getParameter("type");
+		String status = req.getParameter("statusAdoption");
 		SpecieType specieType = null;
+		StatusAdoption statusAdoption = null;
+		if(!status.isEmpty()) {
+			specieType = SpecieType.valueOf(status);
+		}
 		if(!type.isEmpty()) {
 			specieType = SpecieType.valueOf(type);
 		}
@@ -50,9 +56,7 @@ public class InstitutionSearchAnimalsHelper implements Helper {
 			e.printStackTrace();
 		}
 		req.setAttribute("institutionFilteredAnimals", animals);
-		//TODO
-		// qual seria a Home?
-		return "/dashboard.jsp";
+		return "/institutionAnimalList.jsp";
 	}
 
 }

@@ -33,10 +33,10 @@ public class AddInstitutionHelper implements Helper {
 		
 		if(institutionDao.save(institution)) {
 			req.setAttribute("result", "registered");
-			return "/LoginInstitution.jsp";
+			return "/institutionLogin.jsp";
 		}else {
 			req.setAttribute("result", "notRegistered");
-			return "/institution-userRegister.jsp";
+			return "/institutionRegister.jsp";
 		}
 	}
 

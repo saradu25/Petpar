@@ -37,10 +37,10 @@ public class AddAnimalHelper implements Helper {
 
 		if(animalDao.save(animal)) {
 			req.setAttribute("result", "registered");
-			return "/paginaRecebimentoInstituicao.jsp.jsp";
+			return "/institutionAnimalList.jsp";
 		}else {
 			req.setAttribute("result", "notRegistered");
-			return "/userRegister.jsp";
+			return "/animalInstitutionRegister.jsp";
 		}
 		//TODO tela de animal em adoção pendente?
 	}

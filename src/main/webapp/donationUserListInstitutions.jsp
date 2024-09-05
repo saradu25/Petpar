@@ -22,16 +22,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a href="paginaRecebimento.jsp" class="nav-link" href="#">Inicio</a>
+                <a href="userAnimalList.jsp" class="nav-link" href="#">Lista de Pets</a>
             </li>
             <li class="nav-item">
-                <a href="animalList.jsp" class="nav-link" href="#">Quero adotar</a>
+                <a href="userAnimalRegister.jsp" class="nav-link" href="#">Andamento da adoção</a>
             </li>
             <li class="nav-item">
-                <a href="donations.jsp" class="nav-link" href="#">Como ajudar?</a>
+                <a href="donationUserListInstitutions.jsp" class="nav-link" href="#">Faça uma doação!</a>
             </li>
             <li class="nav-item">
-                <a href="contato.jsp" class="nav-link" href="#">Contato</a>
+                <a action="ControllerServlet" method="post"  value="logout"class="nav-link" href="#">Logout</a>
             </li>
         </ul>
     </div>

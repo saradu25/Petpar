@@ -45,12 +45,33 @@ public class UserDao {
 		}
 	}
 	
-	public Optional<User> getUserByEmail(String email){
-		String sql = "select id,name,email from users where email=?";
+	public Optional<User> getById(long id){
+		String sql = "select id,name,email from users where id=?";
 		Optional<User> optional = Optional.empty();
 		try(Connection conn = dataSource.getConnection(); 
 				PreparedStatement ps = conn.prepareStatement(sql)){
-			ps.setString(1, email);
+			ps.setLong(1, id);
+			try(ResultSet rs = ps.executeQuery()) {
+				if(rs.next()) {
+					User user = new User();
+					user.setId(rs.getLong(1));
+					user.setName(rs.getString(2));
+					user.setEmail(rs.getString(3));
+					optional = Optional.of(user);
+				}
+			}
+		}catch (SQLException e) {
+			throw new RuntimeException("Erro durante a consulta", e);
+		}
+		return optional;
+	}
+
+	public Optional<User> getByCPF(String cpf){
+		String sql = "select id,name,email from users where cpf=?";
+		Optional<User> optional = Optional.empty();
+		try(Connection conn = dataSource.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql)){
+			ps.setString(1, cpf);
 			try(ResultSet rs = ps.executeQuery()) {
 				if(rs.next()) {
 					User user = new User();
@@ -67,7 +88,7 @@ public class UserDao {
 	}
 	
 	public Boolean save(User user){
-		Optional<User> optional = getUserByEmail(user.getEmail());
+		Optional<User> optional = getByCPF(user.getCpf());
 		if(optional.isPresent()) {
 			return false;
 		}

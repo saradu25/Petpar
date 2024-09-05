@@ -18,13 +18,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a href="paginaRecebimento.jsp" class="nav-link" href="#">Inicio</a>
+                <a href="home.jsp" class="nav-link" href="#">Inicio</a>
             </li>
             <li class="nav-item">
-                <a href="animalList.jsp" class="nav-link" href="#">Quero adotar</a>
+                <a href="userLogin.jsp" class="nav-link" href="#">Quero adotar</a>
             </li>
             <li class="nav-item">
-                <a href="donations.jsp" class="nav-link" href="#">Como ajudar?</a>
+                <a href="institutionLogin.jsp" class="nav-link" href="#">Faça Parte</a>
             </li>
             <li class="nav-item">
                 <a href="contato.jsp" class="nav-link" href="#">Contato</a>

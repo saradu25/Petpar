@@ -22,13 +22,10 @@ public class InstitutionLoginHelper implements Helper {
 			HttpSession session = req.getSession();
 			session.setMaxInactiveInterval(600);
 			session.setAttribute("institution", institution);
-			//TODO
-			// ir pra tela de listar animais em adoção da instituição
-			//return "/ControllerServlet?action=institutionSearchAnimals";
-			return "/paginaRecebimentoInstituicao.jsp.jsp";
+			return "/institutionAnimalList.jsp";
 		}else {
 			req.setAttribute("result", "loginError");
-			return "/LoginInstitution.jsp";
+			return "/institutionLogin.jsp";
 		}
 	}
 

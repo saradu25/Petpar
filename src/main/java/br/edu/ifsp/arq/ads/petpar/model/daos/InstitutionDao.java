@@ -38,12 +38,33 @@ public class InstitutionDao {
 		}
 	}
 
-	public Optional<Institution> getUserByEmail(String email){
-		String sql = "select id,name,email from institutions where email=?";
+	public Optional<Institution> getById(Long id){
+		String sql = "select id,name,email from institutions where id=?";
 		Optional<Institution> optional = Optional.empty();
 		try(Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql)){
-			ps.setString(1, email);
+			ps.setLong(1, id);
+			try(ResultSet rs = ps.executeQuery()) {
+				if(rs.next()) {
+					Institution institution = new Institution();
+					institution.setId(rs.getLong(1));
+					institution.setName(rs.getString(2));
+					institution.setEmail(rs.getString(3));
+					optional = Optional.of(institution);
+				}
+			}
+		}catch (SQLException e) {
+			throw new RuntimeException("Erro durante a consulta", e);
+		}
+		return optional;
+	}
+
+	public Optional<Institution> getByCPForCNPJ(String cpfCnpj){
+		String sql = "select id,name,email from institutions where cpf_or_cnpj=?";
+		Optional<Institution> optional = Optional.empty();
+		try(Connection conn = dataSource.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql)){
+			ps.setString(1, cpfCnpj);
 			try(ResultSet rs = ps.executeQuery()) {
 				if(rs.next()) {
 					Institution institution = new Institution();
@@ -60,7 +81,7 @@ public class InstitutionDao {
 	}
 
 	public Boolean save(Institution institution){
-		Optional<Institution> optional = getUserByEmail(institution.getEmail());
+		Optional<Institution> optional = getByCPForCNPJ(institution.getCpfOrCnpj());
 		if(optional.isPresent()) {
 			return false;
 		}

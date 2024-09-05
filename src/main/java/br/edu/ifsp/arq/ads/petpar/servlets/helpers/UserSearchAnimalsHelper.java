@@ -10,6 +10,8 @@ import br.edu.ifsp.arq.ads.petpar.model.entities.Animal;
 import br.edu.ifsp.arq.ads.petpar.model.entities.SpecieType;
 import br.edu.ifsp.arq.ads.petpar.model.entities.StatusAdoption;
 import br.edu.ifsp.arq.ads.petpar.utils.SearcherDataSource;
+import com.mysql.jdbc.StringUtils;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,18 +21,19 @@ public class UserSearchAnimalsHelper implements Helper {
 	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		String type = req.getParameter("type");
 		SpecieType specieType = null;
-		if(!type.isEmpty()) {
+		String initialDateString = req.getParameter("initial-date");
+		LocalDate initialDate = null;
+		String finalDateString = req.getParameter("final-date");
+		LocalDate finalDate = null;
+
+		if(!StringUtils.isNullOrEmpty(type)) {
 			specieType = SpecieType.valueOf(type);
 		}
-		String date = req.getParameter("initial-date");
-		LocalDate initialDate = null;
-		if(!date.isEmpty()) {
-			initialDate = LocalDate.parse(date);
+		if(!StringUtils.isNullOrEmpty(initialDateString)) {
+			initialDate = LocalDate.parse(initialDateString);
 		}
-		date = req.getParameter("final-date");
-		LocalDate finalDate = null;
-		if(!date.isEmpty()) {
-			finalDate = LocalDate.parse(date);
+		if(!StringUtils.isNullOrEmpty(finalDateString)) {
+			finalDate = LocalDate.parse(finalDateString);
 		}
 
 		AnimalFilter filter = new AnimalFilter();
@@ -47,9 +50,7 @@ public class UserSearchAnimalsHelper implements Helper {
 			e.printStackTrace();
 		}
 		req.setAttribute("filteredAnimals", animals);
-		//TODO
-		// qual seria a Home?
-		return "/animalList.jsp";
+		return "/userAnimalList.jsp";
 	}
 
 }

@@ -18,13 +18,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a href="paginaRecebimento.jsp" class="nav-link" href="#">Inicio</a>
+                <a href="home.jsp" class="nav-link" href="#">Inicio</a>
             </li>
             <li class="nav-item">
-                <a href="animalList.jsp" class="nav-link" href="#">Quero adotar</a>
+                <a href="userLogin.jsp" class="nav-link" href="#">Quero adotar</a>
             </li>
             <li class="nav-item">
-                <a href="donations.jsp" class="nav-link" href="#">Como ajudar?</a>
+                <a href="institutionLogin.jsp" class="nav-link" href="#">Faça Parte</a>
             </li>
             <li class="nav-item">
                 <a href="contato.jsp" class="nav-link" href="#">Contato</a>
@@ -65,7 +65,7 @@
             <h1 class="display-3 font-weight-bold">PetPar</h1>
             <p class="lead">Encontre seu novo amigo aqui!</p>
             <div class="btn-container">
-                <a href="LoginUsuario.jsp" class="btn btn-adopt btn-lg mb-3 btn-custom">Quero adotar</a>
+                <a href="userLogin.jsp" class="btn btn-adopt btn-lg mb-3 btn-custom">Quero adotar</a>
                 <a href="LoginInstitution.jsp" class="btn btn-institution btn-lg btn-custom">Sou uma instituição</a>
             </div>
         </div>

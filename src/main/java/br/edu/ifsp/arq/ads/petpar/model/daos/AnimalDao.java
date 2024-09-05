@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 
 import br.edu.ifsp.arq.ads.petpar.model.daos.filters.AnimalFilter;
 import br.edu.ifsp.arq.ads.petpar.model.entities.*;
+import br.edu.ifsp.arq.ads.petpar.utils.SearcherDataSource;
 
 public class AnimalDao {
 
@@ -29,11 +30,11 @@ public class AnimalDao {
 			ps.setString(1, animal.getName());
 			ps.setString(2, animal.getDescription());
 			ps.setString(3, animal.getGender().getDescription());
-			ps.setDate(4, Date.valueOf(animal.getBirthDate()));
+			ps.setDate(4, getDate(animal.getBirthDate()));
 			ps.setString(5, animal.getType().getName());
 			ps.setString(6, animal.getStatusAdoption().getValue());
-			ps.setDate(7, Date.valueOf(animal.getPostedAt()));
-			//ps.setDate(8, Date.valueOf(animal.getAdoptedAt()));
+			ps.setDate(7, getDate(animal.getPostedAt()));
+			//ps.setDate(8, getDate(animal.getAdoptedAt()));
 			ps.setLong(8, animal.getInstitution().getId());
 			ps.executeUpdate();
 			return true;
@@ -49,13 +50,12 @@ public class AnimalDao {
 			ps.setString(1, animal.getName());
 			ps.setString(2, animal.getDescription());
 			ps.setString(3, animal.getGender().getDescription());
-			ps.setDate(4, Date.valueOf(animal.getBirthDate()));
-			ps.setString(5, animal.getType().getName());
-			ps.setString(6, animal.getStatusAdoption().getValue());
-			ps.setDate(7, Date.valueOf(animal.getPostedAt()));
-			ps.setDate(8, Date.valueOf(animal.getAdoptedAt()));
-			ps.setLong(9, animal.getInstitution().getId());
-			ps.setLong(10, animal.getUser().getId());
+			ps.setString(4, animal.getType().getName());
+			ps.setString(5, animal.getStatusAdoption().getValue());
+			ps.setDate(6, getDate(animal.getPostedAt()));
+			ps.setDate(7, getDate(animal.getAdoptedAt()));
+			ps.setLong(8, animal.getInstitution().getId());
+			ps.setLong(9, animal.getUser().getId());
 			ps.setLong(10, animal.getId());
 			ps.executeUpdate();
 			return true;
@@ -76,11 +76,11 @@ public class AnimalDao {
 					animal.setName(rs.getString(2));
 					animal.setDescription(rs.getString(3));
 					animal.setGender(Gender.valueOf(rs.getString(4)));
-					animal.setBirthDate(LocalDate.parse(rs.getDate(5).toString()));
+					animal.setBirthDate(getStringLocalDate(rs.getDate(5)));
 					animal.setType(SpecieType.valueOf(rs.getString(6)));
 					animal.setStatusAdoption(StatusAdoption.valueOf(rs.getString(7)));
-					animal.setPostedAt(LocalDate.parse(rs.getDate(8).toString()));
-					animal.setAdoptedAt(LocalDate.parse(rs.getDate(9).toString()));
+					animal.setPostedAt(getStringLocalDate(rs.getDate(8)));
+					animal.setAdoptedAt(getStringLocalDate(rs.getDate(9)));
 					animal.setInstitution(institution);
 					User user = new User();
 					user.setId(rs.getLong(10));
@@ -107,11 +107,11 @@ public class AnimalDao {
 					animal.setName(rs.getString(2));
 					animal.setDescription(rs.getString(3));
 					animal.setGender(Gender.valueOf(rs.getString(4)));
-					animal.setBirthDate(LocalDate.parse(rs.getDate(5).toString()));
+					animal.setBirthDate(getStringLocalDate(rs.getDate(5)));
 					animal.setType(SpecieType.valueOf(rs.getString(6)));
 					animal.setStatusAdoption(StatusAdoption.valueOf(rs.getString(7)));
-					animal.setPostedAt(LocalDate.parse(rs.getDate(8).toString()));
-					animal.setAdoptedAt(LocalDate.parse(rs.getDate(9).toString()));
+					animal.setPostedAt(getStringLocalDate(rs.getDate(8)));
+					animal.setAdoptedAt(getStringLocalDate(rs.getDate(9)));
 
 					User user = new User();
 					user.setId(rs.getLong(10));
@@ -140,7 +140,7 @@ public class AnimalDao {
 	}
 
 	public List<Animal> getAnimalsByFilter(AnimalFilter filter) throws SQLException {
-		StringBuilder sql = 
+		StringBuilder sql =
 				new StringBuilder("select * from animals where 1=1");
 		List<Object> params = new ArrayList<>();
 
@@ -155,7 +155,7 @@ public class AnimalDao {
 			params.add(filter.getType().toString());
 		}
 
-		if (filter.getType() != null) {
+		if (filter.getStatusAdoption() != null) {
 			sql.append(" and status_adoption=?");
 			params.add(filter.getStatusAdoption().getValue());
 		}
@@ -191,18 +191,23 @@ public class AnimalDao {
 					animal.setStatusAdoption(StatusAdoption.valueOf(rs.getString(7)));
 					animal.setPostedAt(getStringLocalDate(rs.getDate(8)));
 					animal.setAdoptedAt(getStringLocalDate(rs.getDate(9)));
-					User user = new User();
-					user.setId(rs.getLong(10));
-					animal.setUser(user);
-					Institution institution = new Institution();
-					institution.setId(rs.getLong(11));
-					animal.setInstitution(institution);
-
+					animal.setUser(getAnimalUser(rs.getLong(10)));
+					animal.setInstitution(getInstitutionUser(rs.getLong(11)));
 					animals.add(animal);
 				}
 			}
 		}
 		return animals;
+	}
+
+	private Institution getInstitutionUser(long id) {
+		InstitutionDao institutionDao = new InstitutionDao(SearcherDataSource.getInstance().getDataSource());
+		return institutionDao.getById(id).orElse(null);
+	}
+
+	private User getAnimalUser(long id) {
+		UserDao userDao = new UserDao(SearcherDataSource.getInstance().getDataSource());
+		return userDao.getById(id).orElse(null);
 	}
 
 
@@ -212,5 +217,14 @@ public class AnimalDao {
 		}
 
 		return LocalDate.parse(data.toString());
+	}
+
+
+	private final static Date getDate(LocalDate data){
+		if(data == null){
+			return null;
+		}
+
+		return Date.valueOf(data);
 	}
 }

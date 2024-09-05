@@ -10,7 +10,7 @@ public class LogoutHelper implements Helper {
 	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		HttpSession session = req.getSession();
 		session.invalidate();
-		return "/login.jsp";
+		return "/home.jsp";
 	}
 
 }

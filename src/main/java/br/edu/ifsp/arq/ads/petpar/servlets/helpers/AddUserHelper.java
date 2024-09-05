@@ -37,7 +37,7 @@ public class AddUserHelper implements Helper {
 		
 		if(userDao.save(user)) {
 			req.setAttribute("result", "registered");
-			return "/LoginUsuario.jsp";
+			return "/userLogin.jsp";
 		}else {
 			req.setAttribute("result", "notRegistered");
 			return "/userRegister.jsp";
