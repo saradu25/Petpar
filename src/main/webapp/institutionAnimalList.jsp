@@ -32,17 +32,16 @@
                         <a href="donations.jsp" class="nav-link" href="#">Lista de doações</a>
                     </li>
                     <li class="nav-item">
-                        <a action="ControllerServlet" method="post"  value="logout"class="nav-link" href="#">Logout</a>
+                        <a class="nav-link" href="ControllerServlet?action=logout" >Logout</a>
                     </li>
                 </ul>
             </div>
     </nav>
 
 	<div class="container">
-		<div class="list-container">
+		<div class="list-container" >
 			<fieldset>
-                <legend>Pets em Adoção</fieldset>
-
+                <legend>Pets em Adoção</legend>
                 <form action="ControllerServlet" method="post">
                     <div class="row">
                         <div class="col-12 col-lg-3">
@@ -140,13 +139,13 @@
                                 </td>
 								<td>${animal.institution.name}</td>
 								<td>
-									<span data-bs-toggle="tooltip" data-bs-placement="top" title="Adotar">
+									<span data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">
 										<a class="btn" href="ControllerServlet?action=userAdoption&id=${animal.id}">
 	                						<img src="img/N/A.svg" alt="Adotar">
 	                					</a>
 									</span>
 
-                					<span data-bs-toggle="tooltip" data-bs-placement="top" title="Voltar">
+                					<span data-bs-toggle="tooltip" data-bs-placement="top" title="Deletar">
                 						<a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal" data-bs-id="${animal.id}">
 	                						<img src="img/N/A.svg" alt="Voltar">
 	                					</a>

@@ -31,7 +31,7 @@
                 <a href="donationUserListInstitutions.jsp" class="nav-link" href="#">Faça uma doação!</a>
             </li>
             <li class="nav-item">
-                <a action="ControllerServlet" method="post"  value="logout"class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="ControllerServlet?action=logout" >Logout</a>
             </li>
         </ul>
     </div>
