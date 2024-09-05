@@ -16,23 +16,23 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">PetPar</a>
+	<a class="navbar-brand" href="home.jsp">PetPar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a href="institutionAnimalList.jsp" class="nav-link" href="#">Lista de Pets</a>
+                    <a href="institutionAnimalList.jsp" class="nav-link">Lista de Pets</a>
                 </li>
                 <li class="nav-item">
-                    <a href="animalRegister.jsp" class="nav-link" href="#">Cadastro de Pets</a>
+                    <a href="institutionAnimalRegister.jsp" class="nav-link">Cadastro de Pets</a>
                 </li>
                 <li class="nav-item">
-                    <a href="donations.jsp" class="nav-link" href="#">Lista de doações</a>
+                    <a href="donationInstitutionList.jsp" class="nav-link">Lista de doações</a>
                 </li>
                 <li class="nav-item">
-                    <a action="ControllerServlet" method="post"  value="logout"class="nav-link" href="#">Logout</a>
+                    <a action="ControllerServlet" method="post"  value="logout"class="nav-link">Logout</a>
                 </li>
             </ul>
         </div>
@@ -65,11 +65,9 @@
                             <select class="form-select"
                                 name="type" id="type">
                                 <option value="" disabled selected>Selecione:</option>
-                                <option value="CACHORRO">Cachorro</option>
-                                <option value="GATO">Gato</option>
-                                <option value="ROEDOR">Roedor</option>
-                                <option value="PEIXE">Peixe</option>
-                                <option value="OUTRO">Outro</option>
+                                <option value="PENDING">Pendente</option>
+                                <option value="IN PROGRESS">Em progresso</option>
+								<option value="DONE">Adotado</option>
                             </select>
                         </div>
                     </div>
@@ -159,7 +157,7 @@
 					</table>
 				</c:when>
 				<c:otherwise>
-					<c:out value="Sem nenhuma animal registrado."></c:out>
+					<c:out value="Nenhum animal registrado."></c:out>
 				</c:otherwise>
 			</c:choose>
 		</div>
