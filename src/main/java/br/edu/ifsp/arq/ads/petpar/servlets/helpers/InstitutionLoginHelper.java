@@ -25,7 +25,7 @@ public class InstitutionLoginHelper implements Helper {
 			//TODO
 			// ir pra tela de listar animais em adoção da instituição
 			//return "/ControllerServlet?action=institutionSearchAnimals";
-			return "/paginaRecebimento.jsp";
+			return "/dashboardInstitution.jsp";
 		}else {
 			req.setAttribute("result", "loginError");
 			return "/LoginInstitution.jsp";

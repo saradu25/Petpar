@@ -25,7 +25,7 @@ public class UserLoginHelper implements Helper {
 			//TODO
 			// ir pra tela de listar animais em adoção disponiveis
 			// return "/ControllerServlet?action=userSearchAnimals";
-			return "/paginaRecebimento.jsp";
+			return "/dashboardUser.jsp";
 		}else {
 			req.setAttribute("result", "loginError");
 			return "/userLogin.jsp";
