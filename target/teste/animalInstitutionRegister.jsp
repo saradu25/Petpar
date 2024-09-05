@@ -47,7 +47,7 @@
             <button type="submit" name="action" value="addAnimal">Cadastrar</button>
         </fieldset>
     </form>
-    <p>Já tem uma conta? <a href="LoginUsuario.jsp">Faça login</a></p>
+    <p>Já tem uma conta? <a href="userLogin.jsp">Faça login</a></p>
 </div>
 </body>
 </html>

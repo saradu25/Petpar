@@ -4,10 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Adotante</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/cadastro.css">
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">PetPar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a href="home.jsp" class="nav-link" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a href="userLogin.jsp" class="nav-link" href="#">Quero adotar</a>
+            </li>
+            <li class="nav-item">
+                <a href="institutionLogin.jsp" class="nav-link" href="#">Faça Parte</a>
+            </li>
+            <li class="nav-item">
+                <a href="contato.jsp" class="nav-link" href="#">Contato</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class="cadastro-container">
     <form action="ControllerServlet" method="post" id="registerForm">
         <fieldset>
@@ -48,7 +71,7 @@
             <button type="submit" name="action" value="addUser">Cadastrar</button>
         </fieldset>
     </form>
-    <p>Já tem uma conta? <a href="LoginUsuario.jsp">Faça login</a></p>
+    <p>Já tem uma conta? <a href="userLogin.jsp">Faça login</a></p>
 </div>
 <script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
