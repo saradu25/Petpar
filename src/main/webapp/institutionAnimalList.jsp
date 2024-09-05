@@ -10,86 +10,87 @@
     <meta charset="UTF-8">
     <title>Animais para Adoção - PetPar</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/x.css">
+    <link rel="stylesheet" href="css/cadastro.css">
 
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="home.jsp">PetPar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a href="institutionAnimalList.jsp" class="nav-link">Lista de Pets</a>
-                </li>
-                <li class="nav-item">
-                    <a href="institutionAnimalRegister.jsp" class="nav-link">Cadastro de Pets</a>
-                </li>
-                <li class="nav-item">
-                    <a href="donationInstitutionList.jsp" class="nav-link">Lista de doações</a>
-                </li>
-                <li class="nav-item">
-                    <a action="ControllerServlet" method="post"  value="logout"class="nav-link">Logout</a>
-                </li>
-            </ul>
-        </div>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">PetPar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a href="institutionAnimalList.jsp" class="nav-link" href="#">Lista de Pets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="institutionAnimalRegister.jsp" class="nav-link" href="#">Cadastro de Pets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="donations.jsp" class="nav-link" href="#">Lista de doações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a action="ControllerServlet" method="post"  value="logout"class="nav-link" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+    </nav>
 
 	<div class="container">
-		<div class="center col-lg-10 col-sm-12">
-			<div class="col-12">
-				<h2>Animais para Adoção</h2>
-			</div>
-			<form action="ControllerServlet" method="post">
-				<div class="row">
-					<div class="col-12 col-lg-3">
-					  	<div class="mb-2">
-							<label for="type">Tipo</label>
-							<select class="form-select"
-								name="type" id="type">
-								<option value="" disabled selected>Selecione</option>
-                                <option value="CACHORRO">Cachorro</option>
-                                <option value="GATO">Gato</option>
-                                <option value="ROEDOR">Roedor</option>
-                                <option value="PEIXE">Peixe</option>
-                                <option value="OUTRO">Outro</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-12 col-lg-3">
-                        <div class="mb-2">
-                            <label for="type">Status</label>
-                            <select class="form-select"
-                                name="type" id="type">
-                                <option value="" disabled selected>Selecione:</option>
-                                <option value="PENDING">Pendente</option>
-                                <option value="IN PROGRESS">Em progresso</option>
-								<option value="DONE">Adotado</option>
-                            </select>
+		<div class="list-container">
+			<fieldset>
+                <legend>Pets em Adoção</fieldset>
+
+                <form action="ControllerServlet" method="post">
+                    <div class="row">
+                        <div class="col-12 col-lg-3">
+                            <div class="mb-2">
+                                <label for="type">Tipo</label>
+                                <select class="form-select"
+                                    name="type" id="type">
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="IN_PROGRESS">IN_PROGRESS</option>
+                                    <option value="PENDING">PENDING</option>
+                                    <option value="DONE">DONE</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <div class="mb-2">
+                                <label for="type">Status</label>
+                                <select class="form-select"
+                                    name="status" id="status">
+                                    <option value="" disabled selected>Selecione:</option>
+                                    <option value="CACHORRO">Cachorro</option>
+                                    <option value="GATO">Gato</option>
+                                    <option value="ROEDOR">Roedor</option>
+                                    <option value="PEIXE">Peixe</option>
+                                    <option value="OUTRO">Outro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <div class="mb-2">
+                                <label for="initial-date">Data inicial</label>
+                                <input type="date" name="initial-date" id="initial-date"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <div class="mb-2">
+                                <label for="final-date">Data final</label>
+                                <input type="date" name="final-date" id="final-date"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 mt-4">
+                            <button type="submit" class="btn btn-primary" name="action" value="institutionAnimals">Filtrar</button>
                         </div>
                     </div>
-					<div class="col-12 col-lg-3">
-						<div class="mb-2">
-							<label for="initial-date">Data inicial</label>
-							<input type="date" name="initial-date" id="initial-date"
-								class="form-control">
-						</div>
-					</div>
-					<div class="col-12 col-lg-3">
-						<div class="mb-2">
-							<label for="final-date">Data final</label>
-							<input type="date" name="final-date" id="final-date"
-								class="form-control">
-						</div>
-					</div>
-					<div class="col-12 col-lg-3 mt-4">
-						<button type="submit" class="btn btn-primary" name="action" value="institutionAnimals">Filtrar</button>
-					</div>
-				</div>
-			</form>
+                </form>
+            </fieldset>
 			<c:choose>
 				<c:when test="${fn:length(institutionFilteredAnimals) > 0}">
 					<table class="table table-responsive table-striped table-hover" >

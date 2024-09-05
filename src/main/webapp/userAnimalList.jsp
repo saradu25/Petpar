@@ -26,13 +26,13 @@
                 <a href="userAnimalList.jsp" class="nav-link">Lista de Pets</a>
             </li>
             <li class="nav-item">
-                <a href="userAnimalAdoption.jsp" class="nav-link">Andamento da adoção</a>
+                <a href="animalUserProfile.jsp" class="nav-link" href="#">Andamento da adoção</a>
             </li>
             <li class="nav-item">
                 <a href="donationUser.jsp" class="nav-link">Faça uma doação!</a>
             </li>
             <li class="nav-item">
-                <a action="ControllerServlet" method="post"  value="logout"class="nav-link">Logout</a>
+                <a action="ControllerServlet" method="post" value="logout" class="nav-link" href="#">Logout</a>
             </li>
         </ul>
     </div>

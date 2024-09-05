@@ -25,7 +25,7 @@
                     <a href="institutionAnimalList.jsp" class="nav-link" href="#">Lista de Pets</a>
                 </li>
                 <li class="nav-item">
-                    <a href="animalRegister.jsp" class="nav-link" href="#">Cadastro de Pets</a>
+                    <a href="institutionAnimalRegister.jsp" class="nav-link" href="#">Cadastro de Pets</a>
                 </li>
                 <li class="nav-item">
                     <a href="donations.jsp" class="nav-link" href="#">Lista de doações</a>
