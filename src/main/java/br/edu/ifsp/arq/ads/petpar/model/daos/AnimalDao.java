@@ -145,7 +145,7 @@ public class AnimalDao {
 		List<Object> params = new ArrayList<>();
 
 
-		if (filter.getType() != null) {
+		if (filter.getInstitution() != null) {
 			sql.append(" and institution_id=?");
 			params.add(filter.getInstitution().getId());
 		}
@@ -186,15 +186,16 @@ public class AnimalDao {
 					animal.setName(rs.getString(2));
 					animal.setDescription(rs.getString(3));
 					animal.setGender(Gender.valueOf(rs.getString(4)));
-					animal.setType(SpecieType.valueOf(rs.getString(5)));
-					animal.setStatusAdoption(StatusAdoption.valueOf(rs.getString(6)));
-					animal.setPostedAt(LocalDate.parse(rs.getDate(7).toString()));
-					animal.setAdoptedAt(LocalDate.parse(rs.getDate(8).toString()));
+					animal.setBirthDate(getStringLocalDate(rs.getDate(5)));
+					animal.setType(SpecieType.valueOf(rs.getString(6)));
+					animal.setStatusAdoption(StatusAdoption.valueOf(rs.getString(7)));
+					animal.setPostedAt(getStringLocalDate(rs.getDate(8)));
+					animal.setAdoptedAt(getStringLocalDate(rs.getDate(9)));
 					User user = new User();
-					user.setId(rs.getLong(9));
+					user.setId(rs.getLong(10));
 					animal.setUser(user);
 					Institution institution = new Institution();
-					institution.setId(rs.getLong(10));
+					institution.setId(rs.getLong(11));
 					animal.setInstitution(institution);
 
 					animals.add(animal);
@@ -202,5 +203,14 @@ public class AnimalDao {
 			}
 		}
 		return animals;
+	}
+
+
+	private final static LocalDate getStringLocalDate(Date data){
+		if(data == null){
+			return null;
+		}
+
+		return LocalDate.parse(data.toString());
 	}
 }

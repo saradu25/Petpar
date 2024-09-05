@@ -21,13 +21,10 @@
                 <a href="paginaRecebimento.jsp" class="nav-link" href="#">Inicio</a>
             </li>
             <li class="nav-item">
-                <a href="animalList.jsp" class="nav-link" href="#">Quero adotar</a>
+                <a href="animalListInstitution.jsp" class="nav-link" href="#">Lista de Pets</a>
             </li>
             <li class="nav-item">
-                <a href="donations.jsp" class="nav-link" href="#">Como ajudar?</a>
-            </li>
-            <li class="nav-item">
-                <a href="contato.jsp" class="nav-link" href="#">Contato</a>
+                <a href="donations.jsp" class="nav-link" href="#">Lista de doações</a>
             </li>
         </ul>
     </div>
@@ -65,8 +62,8 @@
             <h1 class="display-3 font-weight-bold">PetPar</h1>
             <p class="lead">Encontre seu novo amigo aqui!</p>
             <div class="btn-container">
-                <a href="LoginUsuario.jsp" class="btn btn-adopt btn-lg mb-3 btn-custom">Quero adotar</a>
-                <a href="LoginInstitution.jsp" class="btn btn-institution btn-lg btn-custom">Sou uma instituição</a>
+                <a href="userRegister.jsp" class="btn btn-adopt btn-lg mb-3 btn-custom">Quero adotar</a>
+                <a href="institutionRegister.jsp" class="btn btn-institution btn-lg btn-custom">Sou uma instituição</a>
             </div>
         </div>
     </div>

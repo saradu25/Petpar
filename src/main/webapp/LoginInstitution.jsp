@@ -28,7 +28,7 @@
     <button type="submit" class="btn btn-adopt w-100" name="action" value="institutionLogin">Entrar</button>
   </form>
   <div class="text-center mt-3">
-    <p class="text-white">Não tem conta? <a href="paginaRecebimento.jsp" class="text-white">Cadastre-se aqui</a></p>
+    <p class="text-white">Não tem conta? <a href="paginaRecebimentoInstituicao.jsp.jsp" class="text-white">Cadastre-se aqui</a></p>
     <p><a href="#" class="text-white">Esqueceu sua senha?</a></p>
   </div>
 </div>

@@ -37,7 +37,7 @@ public class AddAnimalHelper implements Helper {
 
 		if(animalDao.save(animal)) {
 			req.setAttribute("result", "registered");
-			return "/paginaRecebimento.jsp";
+			return "/paginaRecebimentoInstituicao.jsp.jsp";
 		}else {
 			req.setAttribute("result", "notRegistered");
 			return "/userRegister.jsp";
