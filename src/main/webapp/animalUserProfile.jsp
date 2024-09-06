@@ -14,20 +14,20 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a href="home.jsp" class="nav-link">Inicio</a>
-            </li>
-            <li class="nav-item">
-                <a href="userLogin.jsp" class="nav-link">Quero adotar</a>
-            </li>
-            <li class="nav-item">
-                <a href="institutionLogin.jsp" class="nav-link">Faça Parte</a>
-            </li>
-            <li class="nav-item">
-                <a href="contato.jsp" class="nav-link">Contato</a>
-            </li>
-        </ul>
+       <ul class="navbar-nav ml-auto">
+           <li class="nav-item active">
+               <a href="userAnimalList.jsp" class="nav-link">Lista de Pets</a>
+           </li>
+           <li class="nav-item">
+               <a href="animalUserProfile.jsp" class="nav-link">Andamento da adoção</a>
+           </li>
+           <li class="nav-item">
+               <a href="ControllerServlet?action=institutionList" class="nav-link" href="#">Faça uma doação!</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="ControllerServlet?action=logout" >Logout</a>
+           </li>
+       </ul>
     </div>
 </nav>
 
@@ -49,8 +49,8 @@
                         <li class="list-group-item">Data de Nascimento: ${animal.birthDate}</li>
                         <li class="list-group-item">Tipo: ${animal.type}</li>
                     </ul>
-                    <form action="ControllerServlet" method="post" class="mt-4">
-                        <input type="hidden" name="animalId" value="${animal.id}">
+                    <form action="ControllerServlet" method="post" id="form1" class="mt-4">
+                        <input type="hidden" name="id" id="id" value="${animal.id}">
                         <button type="submit" class="btn btn-custom w-100" name="action" value="userAdoption">Solicitar Adoção</button>
                     </form>
                     <br></br>

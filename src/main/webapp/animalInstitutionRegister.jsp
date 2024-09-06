@@ -11,7 +11,7 @@
 <div class="cadastro-container">
     <form action="ControllerServlet" method="post">
         <fieldset>
-            <legend>Cadastro de Adotante</legend>
+            <legend>Cadastro de Pet</legend>
             <div class="inputBox">
                 <label for="nome">Nome:</label>
                 <input type="text" id="name" name="name" required>

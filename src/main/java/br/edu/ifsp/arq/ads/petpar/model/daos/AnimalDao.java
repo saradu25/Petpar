@@ -58,7 +58,12 @@ public class AnimalDao {
 			ps.setDate(6, getDate(animal.getPostedAt()));
 			ps.setDate(7, getDate(animal.getAdoptedAt()));
 			ps.setLong(8, animal.getInstitution().getId());
-			ps.setLong(9, animal.getUser().getId());
+			if(animal.getUser().getId() == null){
+				ps.setObject(9, null);
+			}else {
+				ps.setLong(9, animal.getUser().getId());
+			}
+
 			ps.setLong(10, animal.getId());
 			ps.executeUpdate();
 			return true;
@@ -131,10 +136,10 @@ public class AnimalDao {
 		}
 	}
 
-	public Boolean delete(Animal animal) {
+	public Boolean delete(Long id) {
 		String sql = "delete from animals where id=?";
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
-			ps.setLong(1, animal.getId());
+			ps.setLong(1, id);
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException sqlException) {

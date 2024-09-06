@@ -133,9 +133,9 @@
                                         </span>
 
                                         <span data-bs-toggle="tooltip" data-bs-placement="top" title="Perfil">
-                                            <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal" data-bs-id="${animal.id}">
-                                                <img src="img/N/A.svg" alt="Perfil">
-                                            </a>
+                                           <a class="btn" href="ControllerServlet?action=animalUserProfile&id=${animal.id}">
+                                               <img src="img/N/A.svg" alt="Perfil">
+                                           </a>
                                         </span>
 
                                     </td>

@@ -83,10 +83,33 @@
     <param-value>br.edu.ifsp.arq.ads.petpar.servlets.helpers.InstitutionSearchHelper</param-value>
   </context-param>
 
-  title
   <context-param>
     <param-name>initDonation</param-name>
     <param-value>br.edu.ifsp.arq.ads.petpar.servlets.helpers.InitDonationHelper</param-value>
+  </context-param>
+
+
+  <context-param>
+    <param-name>animalInstitutionProfile</param-name>
+    <param-value>br.edu.ifsp.arq.ads.petpar.servlets.helpers.AnimalInstitutionProfileHelper</param-value>
+  </context-param>
+
+
+  <context-param>
+    <param-name>animalUserProfile</param-name>
+    <param-value>br.edu.ifsp.arq.ads.petpar.servlets.helpers.AnimalUserProfileHelper</param-value>
+  </context-param>
+
+
+  <context-param>
+    <param-name>animalUpdate</param-name>
+    <param-value>br.edu.ifsp.arq.ads.petpar.servlets.helpers.AnimalInstitutionUpdateHelper</param-value>
+  </context-param>
+
+
+  <context-param>
+    <param-name>animalDelete</param-name>
+    <param-value>br.edu.ifsp.arq.ads.petpar.servlets.helpers.AnimalInstitutionDeleteHelper</param-value>
   </context-param>
 
 

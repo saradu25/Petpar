@@ -48,7 +48,7 @@
                             <div class="mb-2">
                                 <label for="type">Tipo</label>
                                 <select class="form-select"
-                                    name="type" id="type">
+                                    name="statusAdoption" id="statusAdoption">
                                     <option value="" disabled selected>Selecione</option>
                                     <option value="IN_PROGRESS">IN_PROGRESS</option>
                                     <option value="PENDING">PENDING</option>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="col-12 col-lg-3">
                             <div class="mb-2">
-                                <label for="type">Status</label>
+                                <label for="type">Specie</label>
                                 <select class="form-select"
                                     name="status" id="status">
                                     <option value="" disabled selected>Selecione:</option>
@@ -108,19 +108,19 @@
 								<td>
 									<c:choose>
 										<c:when test="${animal.type == 'CACHORRO'}">
-											<img src="img/N/A.png" alt="Corrida">
+											<img src="img/N/A.png" alt="Cachorro">
 										</c:when>
 										<c:when test="${animal.type == 'GATO'}">
-											<img src="img/N/A.png" alt="Corrida">
+											<img src="img/N/A.png" alt="Gato">
 										</c:when>
 										<c:when test="${animal.type == 'ROEDOR'}">
-											<img src="img/N/A.png" alt="Corrida">
+											<img src="img/N/A.png" alt="Roedor">
 										</c:when>
 										<c:when test="${animal.type == 'PEIXE'}">
-											<img src="img/N/A.png" alt="Corrida">
+											<img src="img/N/A.png" alt="Peixe">
 										</c:when>
 										<c:when test="${animal.type == 'OUTRO'}">
-                                            <img src="img/N/A.png" alt="Corrida">
+                                            <img src="img/N/A.png" alt="Outro">
                                         </c:when>
 									</c:choose>
 								</td>
@@ -140,15 +140,15 @@
 								<td>${animal.institution.name}</td>
 								<td>
 									<span data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">
-										<a class="btn" href="ControllerServlet?action=userAdoption&id=${animal.id}">
-	                						<img src="img/N/A.svg" alt="Adotar">
+										<a class="btn" href="ControllerServlet?action=animalInstitutionProfile&id=${animal.id}">
+	                						<img src="img/N/A.svg" alt="Editar">
 	                					</a>
 									</span>
 
                 					<span data-bs-toggle="tooltip" data-bs-placement="top" title="Deletar">
-                						<a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal" data-bs-id="${animal.id}">
-	                						<img src="img/N/A.svg" alt="Voltar">
-	                					</a>
+                						<a class="btn" href="ControllerServlet?action=animalDelete&id=${animal.id}">
+                                            <img src="img/N/A.svg" alt="Deletar">
+                                        </a>
                 					</span>
 
 								</td>
