@@ -70,7 +70,6 @@
             <button type="submit" name="action" value="addAnimal">Cadastrar</button>
         </fieldset>
     </form>
-    <p>Já tem uma conta? <a href="institutionLogin.jsp">Faça login</a></p>
 </div>
 </body>
 </html>

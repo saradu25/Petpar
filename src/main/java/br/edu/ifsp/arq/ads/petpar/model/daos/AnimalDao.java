@@ -58,7 +58,7 @@ public class AnimalDao {
 			ps.setDate(6, getDate(animal.getPostedAt()));
 			ps.setDate(7, getDate(animal.getAdoptedAt()));
 			ps.setLong(8, animal.getInstitution().getId());
-			if(animal.getUser().getId() == null){
+			if(animal.getUser() == null || animal.getUser().getId() == null){
 				ps.setObject(9, null);
 			}else {
 				ps.setLong(9, animal.getUser().getId());

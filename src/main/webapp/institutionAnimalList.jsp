@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
     import = "java.util.List,br.edu.ifsp.arq.ads.petpar.model.entities.Animal"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -99,7 +98,7 @@
 							<th>Nome</th>
 							<th>Genero</th>
 							<th>Data de nascimento</th>
-							<th>Disponivel para adoção desde</th>
+							<th>Adotante</th>
 							<th>Instituição</th>
 						</tr>
 						<c:forEach var="animal" items="${institutionFilteredAnimals}" varStatus="index">
@@ -132,11 +131,7 @@
                                     <fmt:formatDate value="${parsedDate}" var="newParsedDate" type="date" pattern="dd/MM/yyyy" />
                                     ${newParsedDate}
                                 </td>
-                                <td>
-                                    <fmt:parseDate value="${animal.adoptedAt}" pattern="yyyy-MM-dd" var="parsedDate" type="date" />
-                                    <fmt:formatDate value="${parsedDate}" var="newParsedDate" type="date" pattern="dd/MM/yyyy" />
-                                    ${newParsedDate}
-                                </td>
+                                <td>${animal.user.name}</td>
 								<td>${animal.institution.name}</td>
 								<td>
 									<span data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">
@@ -157,7 +152,7 @@
 					</table>
 				</c:when>
 				<c:otherwise>
-					<c:out value="Nenhum animal registrado."></c:out>
+					<c:out value="Nenhum animal filtrado."></c:out>
 				</c:otherwise>
 			</c:choose>
 		</div>
