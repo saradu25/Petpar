@@ -13,6 +13,9 @@ import javax.sql.DataSource;
 
 import br.edu.ifsp.arq.ads.petpar.model.daos.filters.AnimalFilter;
 import br.edu.ifsp.arq.ads.petpar.model.entities.*;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.Gender;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.SpecieType;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.StatusAdoption;
 import br.edu.ifsp.arq.ads.petpar.utils.SearcherDataSource;
 
 public class AnimalDao {

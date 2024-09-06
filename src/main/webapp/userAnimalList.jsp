@@ -29,7 +29,7 @@
                 <a href="animalUserProfile.jsp" class="nav-link">Andamento da adoção</a>
             </li>
             <li class="nav-item">
-                <a href="donationUser.jsp" class="nav-link">Faça uma doação!</a>
+                <a href="ControllerServlet?action=institutionList" class="nav-link" href="#">Faça uma doação!</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="ControllerServlet?action=logout" >Logout</a>

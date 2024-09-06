@@ -1,7 +1,7 @@
 package br.edu.ifsp.arq.ads.petpar.servlets.helpers;
 
 import br.edu.ifsp.arq.ads.petpar.model.daos.UserDao;
-import br.edu.ifsp.arq.ads.petpar.model.entities.Gender;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.Gender;
 import br.edu.ifsp.arq.ads.petpar.model.entities.User;
 import br.edu.ifsp.arq.ads.petpar.utils.PasswordEncode;
 import br.edu.ifsp.arq.ads.petpar.utils.SearcherDataSource;

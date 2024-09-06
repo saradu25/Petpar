@@ -29,7 +29,7 @@
                         <a href="institutionAnimalRegister.jsp" class="nav-link" href="#">Cadastro de Pets</a>
                     </li>
                     <li class="nav-item">
-                        <a href="donations.jsp" class="nav-link" href="#">Lista de doações</a>
+                        <a href="donationInstitutionList.jsp" class="nav-link" href="#">Lista de doações</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ControllerServlet?action=logout" >Logout</a>
