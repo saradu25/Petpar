@@ -5,6 +5,7 @@ import br.edu.ifsp.arq.ads.petpar.model.daos.filters.DonationFilter;
 import br.edu.ifsp.arq.ads.petpar.model.entities.Donation;
 import br.edu.ifsp.arq.ads.petpar.model.entities.Institution;
 import br.edu.ifsp.arq.ads.petpar.utils.SearcherDataSource;
+import com.mysql.jdbc.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,17 +18,17 @@ public class DonationSearchInstitutionHelper implements Helper {
 
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		String date = req.getParameter("initial-date");
+		String initialDateString = req.getParameter("initial-date");
 		LocalDate initialDate = null;
-		if(!date.isEmpty()) {
-			initialDate = LocalDate.parse(date);
-		}
-		date = req.getParameter("final-date");
+		String finalDateString = req.getParameter("final-date");
 		LocalDate finalDate = null;
-		if(!date.isEmpty()) {
-			finalDate = LocalDate.parse(date);
+		if(!StringUtils.isNullOrEmpty(initialDateString)) {
+			initialDate = LocalDate.parse(initialDateString);
 		}
-		
+		if(!StringUtils.isNullOrEmpty(finalDateString)) {
+			finalDate = LocalDate.parse(finalDateString);
+		}
+
 		HttpSession session = req.getSession(false);
 		Institution institution = (Institution)session.getAttribute("institution");
 		
@@ -43,9 +44,7 @@ public class DonationSearchInstitutionHelper implements Helper {
 			e.printStackTrace();
 		}
 		req.setAttribute("institutionDonation", donations);
-		//TODO
-		// qual seria a Home?
-		return "/dashboard.jsp";
+		return "/donationInstitutionList.jsp";
 	}
 
 }

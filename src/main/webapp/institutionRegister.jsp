@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Instituição</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/cadastro.css">
     <!-- gambiarra para não zoar o description no formulario -->
     <style>
@@ -19,8 +19,30 @@
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">PetPar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a href="home.jsp" class="nav-link" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a href="userLogin.jsp" class="nav-link" href="#">Quero adotar</a>
+            </li>
+            <li class="nav-item">
+                <a href="institutionLogin.jsp" class="nav-link" href="#">Faça Parte</a>
+            </li>
+            <li class="nav-item">
+                <a href="contato.jsp" class="nav-link" href="#">Contato</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class="cadastro-container">
-    <form action="CadastroInstituicaoServlet" method="post">
+    <form action="ControllerServlet" method="post" id="registerForm">
         <fieldset>
             <legend>Cadastro de Instituição</legend>
 
@@ -41,7 +63,7 @@
 
             <div class="inputBox">
                 <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="texPassword" name="texPassword" required>
             </div>
 
             <div class="inputBox">
@@ -51,13 +73,16 @@
 
             <div class="inputBox">
                 <label for="phone_number">Número de Telefone:</label>
-                <input type="text" id="phone_number" name="phone_number" required>
+                <input type="text" id="phoneNumber" name="phoneNumber" required>
             </div>
 
-            <button type="submit">Cadastrar</button>
+            <button type="submit" name="action" value="addInstitution">Cadastrar</button>
         </fieldset>
     </form>
-    <p>Já tem uma conta? <a href="LoginInstitution.jsp">Faça login</a></p>
+    <p>Já tem uma conta? <a href="institutionLogin.jsp">Faça login</a></p>
 </div>
+<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="js/register.js"></script>
 </body>
 </html>

@@ -3,8 +3,8 @@ package br.edu.ifsp.arq.ads.petpar.model.daos.filters;
 import java.time.LocalDate;
 
 import br.edu.ifsp.arq.ads.petpar.model.entities.Institution;
-import br.edu.ifsp.arq.ads.petpar.model.entities.SpecieType;
-import br.edu.ifsp.arq.ads.petpar.model.entities.StatusAdoption;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.SpecieType;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.StatusAdoption;
 
 public class AnimalFilter {
 

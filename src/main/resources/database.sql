@@ -1,8 +1,8 @@
 -- Criar o banco de dados
-CREATE DATABASE PetParDB;
+CREATE DATABASE PetPar;
 
 -- Usar o banco de dados criado
-USE PetParDB;
+USE PetPar;
 
 -- Tabela de usuários
 CREATE TABLE users (
@@ -35,7 +35,7 @@ CREATE TABLE animals (
     description TEXT,
     gender ENUM('MASCULINO', 'FEMININO', 'OUTRO', 'PREFIRO_NAO_DIZER'),
     birth_date DATE,
-    type ENUM('CACHORRO', 'GATO', 'ROEDOR', 'PEIXE') NOT NULL,
+    type ENUM('CACHORRO', 'GATO', 'ROEDOR', 'PEIXE', 'OUTRO') NOT NULL,
     status_adoption ENUM('IN_PROGRESS', 'PENDING', 'DONE') DEFAULT 'PENDING',
     posted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     adopted_at TIMESTAMP NULL,
@@ -49,6 +49,7 @@ CREATE TABLE animals (
 CREATE TABLE donations (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     amount DECIMAL(10, 2) NOT NULL,
+    paymentMethod ENUM('CARTAO', 'PIX'),
     data DATE NOT NULL,
     institution_id BIGINT NOT NULL,
     user_id BIGINT NOT NULL,

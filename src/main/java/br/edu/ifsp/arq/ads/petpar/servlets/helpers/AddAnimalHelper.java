@@ -4,6 +4,9 @@ import java.time.LocalDate;
 
 import br.edu.ifsp.arq.ads.petpar.model.daos.AnimalDao;
 import br.edu.ifsp.arq.ads.petpar.model.entities.*;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.Gender;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.SpecieType;
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.StatusAdoption;
 import br.edu.ifsp.arq.ads.petpar.utils.SearcherDataSource;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,12 +35,16 @@ public class AddAnimalHelper implements Helper {
 		animal.setType(type);
 		animal.setPostedAt(postedAt);
 		animal.setInstitution(institution);
+		animal.setStatusAdoption(StatusAdoption.PENDING);
+
 
 		if(animalDao.save(animal)) {
 			req.setAttribute("result", "registered");
+			return "/institutionAnimalList.jsp";
+		}else {
+			req.setAttribute("result", "notRegistered");
+			return "/animalInstitutionRegister.jsp";
 		}
-		//TODO tela de animal em adoção pendente?
-		return "/activity-userRegister.jsp";
 	}
 
 }

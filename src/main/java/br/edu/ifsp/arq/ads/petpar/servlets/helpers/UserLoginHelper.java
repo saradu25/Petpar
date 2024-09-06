@@ -14,7 +14,7 @@ public class UserLoginHelper implements Helper {
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		String email = req.getParameter("email");
-		String password = req.getParameter("password");
+		String password = req.getParameter("texPassword");
 		UserDao userDao = new UserDao(SearcherDataSource.getInstance().getDataSource());
 		Optional<User> optional = userDao.getUserByEmailAndPassword(email, password);
 		if(optional.isPresent()) {
@@ -22,9 +22,7 @@ public class UserLoginHelper implements Helper {
 			HttpSession session = req.getSession();
 			session.setMaxInactiveInterval(600);
 			session.setAttribute("user", user);
-			//TODO
-			// ir pra tela de listar animais em adoção disponiveis
-			return "/ControllerServlet?action=userSearchAnimals";
+			return "/userAnimalList.jsp";
 		}else {
 			req.setAttribute("result", "loginError");
 			return "/userLogin.jsp";

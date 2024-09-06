@@ -11,20 +11,20 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">PetPar</a>
+    <a class="navbar-brand" href="home.jsp">PetPar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a href="paginaRecebimento.jsp" class="nav-link" href="#">Inicio</a>
+                <a href="home.jsp" class="nav-link" href="#">Inicio</a>
             </li>
             <li class="nav-item">
-                <a href="animalList.jsp" class="nav-link" href="#">Quero adotar</a>
+                <a href="userLogin.jsp" class="nav-link" href="#">Quero adotar</a>
             </li>
             <li class="nav-item">
-                <a href="donations.jsp" class="nav-link" href="#">Como ajudar?</a>
+                <a href="institutionLogin.jsp" class="nav-link" href="#">Faça Parte</a>
             </li>
             <li class="nav-item">
                 <a href="contato.jsp" class="nav-link" href="#">Contato</a>

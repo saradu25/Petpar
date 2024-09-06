@@ -1,5 +1,7 @@
 package br.edu.ifsp.arq.ads.petpar.model.entities;
 
+import br.edu.ifsp.arq.ads.petpar.model.entities.enums.PaymentMethod;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -10,6 +12,7 @@ public class Donation implements Serializable {
 
 	private Long id;
 	private Double amount;
+	private PaymentMethod paymentMethod;
 	private LocalDate data;
 	private Institution institution;
 	private User user;
@@ -53,10 +56,11 @@ public class Donation implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
+	public PaymentMethod getPaymentMethod() {
+		return paymentMethod;
+	}
+	public void setPaymentMethod(PaymentMethod paymentMethod) {
+		this.paymentMethod = paymentMethod;
 	}
 
 	@Override

@@ -5,6 +5,8 @@ import br.edu.ifsp.arq.ads.petpar.utils.PasswordEncode;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class InstitutionDao {
@@ -18,7 +20,7 @@ public class InstitutionDao {
 	public Optional<Institution> getUserByEmailAndPassword(String email, String password) {
 		String passwordEncripted = PasswordEncode.encode(password);
 
-		String sql = "select id,name,email from institution where email=? and password=?";
+		String sql = "select id,name,email from institutions where email=? and password=?";
 		Optional<Institution> optional = Optional.empty();
 		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setString(1, email);
@@ -38,12 +40,33 @@ public class InstitutionDao {
 		}
 	}
 
-	public Optional<Institution> getUserByEmail(String email){
-		String sql = "select id,name,email from institution where email=?";
+	public Optional<Institution> getById(Long id){
+		String sql = "select id,name,email from institutions where id=?";
 		Optional<Institution> optional = Optional.empty();
 		try(Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql)){
-			ps.setString(1, email);
+			ps.setLong(1, id);
+			try(ResultSet rs = ps.executeQuery()) {
+				if(rs.next()) {
+					Institution institution = new Institution();
+					institution.setId(rs.getLong(1));
+					institution.setName(rs.getString(2));
+					institution.setEmail(rs.getString(3));
+					optional = Optional.of(institution);
+				}
+			}
+		}catch (SQLException e) {
+			throw new RuntimeException("Erro durante a consulta", e);
+		}
+		return optional;
+	}
+
+	public Optional<Institution> getByCPForCNPJ(String cpfCnpj){
+		String sql = "select id,name,email from institutions where cpf_or_cnpj=?";
+		Optional<Institution> optional = Optional.empty();
+		try(Connection conn = dataSource.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql)){
+			ps.setString(1, cpfCnpj);
 			try(ResultSet rs = ps.executeQuery()) {
 				if(rs.next()) {
 					Institution institution = new Institution();
@@ -60,12 +83,12 @@ public class InstitutionDao {
 	}
 
 	public Boolean save(Institution institution){
-		Optional<Institution> optional = getUserByEmail(institution.getEmail());
+		Optional<Institution> optional = getByCPForCNPJ(institution.getCpfOrCnpj());
 		if(optional.isPresent()) {
 			return false;
 		}
-		String sql = "insert into institution (name, description, email, "
-				+ " cpf_cnpj, phone_number, password, created_at) values (?,?,?,?,?,?,?,?)";
+		String sql = "insert into institutions (name, description, email, "
+				+ " cpf_or_cnpj, phone_number, password, created_at) values (?,?,?,?,?,?,?)";
 		try(Connection conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql)){
 			ps.setString(1, institution.getName());
@@ -81,4 +104,27 @@ public class InstitutionDao {
 		}
 		return true;
 	}
+
+    public List<Institution> getAll() {
+		String sql = "select * from institutions";
+		List<Institution> list = new ArrayList<>();
+		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+			try (ResultSet rs = ps.executeQuery()) {
+				while (rs.next()) {
+					Institution institution = new Institution();
+
+					institution.setId(rs.getLong(1));
+					institution.setName(rs.getString(2));
+					institution.setEmail(rs.getString(4));
+					institution.setCpfOrCnpj(rs.getString(5));
+					institution.setPhoneNumber(rs.getString(6));
+
+					list.add(institution);
+				}
+			}
+			return list;
+		} catch (SQLException sqlException) {
+			throw new RuntimeException("Erro durante a consulta", sqlException);
+		}
+    }
 }

@@ -1,11 +1,12 @@
-package br.edu.ifsp.arq.ads.petpar.model.entities;
+package br.edu.ifsp.arq.ads.petpar.model.entities.enums;
 
 public enum SpecieType {
 
-	CACHORRO("Cachorro"),
-	GATO("Gato"),
-	ROEDOR("Roedor"),
-	PEIXE("Peixe");
+	CACHORRO("CACHORRO"),
+	GATO("GATO"),
+	ROEDOR("ROEDOR"),
+	PEIXE("PEIXE"),
+	OUTRO("OUTRO");
 	
 	private String name;
 	

@@ -15,9 +15,9 @@ public class AddInstitutionHelper implements Helper {
 	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		String name = req.getParameter("name");
 		String email = req.getParameter("email");
-		String password = req.getParameter("password");
+		String password = req.getParameter("texPassword");
 		String description = req.getParameter("description");
-		String cpfOrCnpj = req.getParameter("cpfOrCnpj");
+		String cpfOrCnpj = req.getParameter("cpfCnpj");
 		String phoneNumber = req.getParameter("phoneNumber");
 		
 		Institution institution = new Institution();
@@ -36,7 +36,7 @@ public class AddInstitutionHelper implements Helper {
 			return "/institutionLogin.jsp";
 		}else {
 			req.setAttribute("result", "notRegistered");
-			return "/institution-userRegister.jsp";
+			return "/institutionRegister.jsp";
 		}
 	}
 
